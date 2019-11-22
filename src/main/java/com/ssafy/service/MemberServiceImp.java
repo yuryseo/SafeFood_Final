@@ -18,10 +18,13 @@ public class MemberServiceImp implements MemberService {
 	@Override
 	public boolean login(String id, String password) {
 		try {
+			System.out.println("service..."+id+password);
 			Member member = mdao.search(id);
+			System.out.println(member);
 			if (member == null) {
 				throw new InfoNotFoundException();
 			} else {
+				
 				if (password.equals(member.getPassword())) {
 					return true;
 				} else {

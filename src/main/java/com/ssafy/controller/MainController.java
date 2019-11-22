@@ -325,7 +325,11 @@ public class MainController {
 		 * member.getId();
 		 */
 		
+<<<<<<< HEAD
 		return "qna";
+=======
+		return "redirect:test.jsp";
+>>>>>>> branch 'master' of https://lab.ssafy.com/whitefate/safefood.git
 	} 
 	
 

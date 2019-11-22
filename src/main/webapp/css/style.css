@@ -3678,7 +3678,7 @@ ul {
 
 /* line 1, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
 .breadcrumb_bg {
-  background-image: url("../img/breadcrumb.png");
+  background-image: url("../img/bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4268,7 +4268,7 @@ ul {
 }
 
 /* line 85, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
-b,
+
 sup,
 sub,
 u,
@@ -5562,5 +5562,33 @@ h6 {
 .switch-wrap {
   margin-bottom: 10px;
 }
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+}
+
+
+/*---------------------------------------------*/
+.input100 {
+  font-family: Raleway-Medium;
+  color: #000000;
+  line-height: 1.2;
+  font-size: 18px;
+
+  display: block;
+  width: 80%;
+
+  height: 25px;
+  padding: 0 25px 0 25px;
+  margin: 5px 25px 5px 25px;
+}
+
+
 
 /*# sourceMappingURL=../css/style.map */
