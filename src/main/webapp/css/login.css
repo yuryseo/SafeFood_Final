@@ -188,7 +188,7 @@ iframe {
 
 .wrap-login100 {
   width: 560px;
-  background: #fff;
+  background: #8080ff;
   border-radius: 10px;
   position: relative;
 }
@@ -204,7 +204,7 @@ iframe {
 .login100-form-title {
   font-family: Raleway-Medium;
   font-size: 30px;
-  color: #555555;
+  color: #ffffff;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: left;
@@ -221,7 +221,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  background-color: #fff;
+  background-color: #e6e6e6;
   border: 1px solid #e6e6e6;
   border-radius: 2px;
 }
@@ -230,13 +230,13 @@ iframe {
 /*---------------------------------------------*/
 .input100 {
   font-family: Raleway-Medium;
-  color: #555555;
+  color: #000000;
   line-height: 1.2;
   font-size: 18px;
 
   display: block;
   width: 100%;
-  background: transparent;
+  background: ;
   height: 55px;
   padding: 0 25px 0 25px;
 }
@@ -370,7 +370,7 @@ iframe {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #57b846;
+  color: #000000;
 }
 
 

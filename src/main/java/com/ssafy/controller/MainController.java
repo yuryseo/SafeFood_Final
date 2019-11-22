@@ -327,7 +327,7 @@ public class MainController {
 		 * member.getId();
 		 */
 		
-		return "redirect:index.html";
+		return "redirect:test.jsp";
 	} 
 	
 

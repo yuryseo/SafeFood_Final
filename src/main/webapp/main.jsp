@@ -4,26 +4,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
 <title>MAIN</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/index.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <!-- fontawesome CSS -->
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <!-- magnific CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/gijgo.min.css">
+    <!-- niceselect CSS -->
+    <link rel="stylesheet" href="css/nice-select.css">
+    <!-- slick CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+     
 </head>
 <body>
 	<input type="hidden" id="detailItem" value="">
-	<section id='intro'>
-		<div id='introFirstComment'>
-			<font>WHAT WE <b>PROVIDE</b></font>
-		</div>
-		<div>
-			건강한 삶을 위한 먹거리 프로젝트
-		</div>
-	</section>
-	<section id='searchForm'>
-		<form method="get" action="foodList.do" id="frm">
+	<section class="breadcrumb breadcrumb_bg">
+		 <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item text-center">
+                            <h2>WHAT WE <b>PROVIDE</b></h2>
+                            <p>건강한 삶을 위한 먹거리 프로젝트</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="get" action="foodList.do" id="frm">
 			<table align="center">
 				<tr>
 					<td>정렬</td>
@@ -48,6 +77,9 @@
 				</tr>
 			</table>
 		</form>
+	</section>
+	<section id='searchForm'>
+		
 	</section>
 </body>
 </html>
