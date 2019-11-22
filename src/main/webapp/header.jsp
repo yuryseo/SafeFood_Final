@@ -4,7 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!doctype html>
-<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -47,16 +46,16 @@
 				<div class="row">
 					<div class="col-lg-12 col-sm-12 col-md-12">
 						<div class="sub_menu_social_icon">
-							헤더
 							<button type="button" id="loginBtn"
 								class="genric-btn success-border radius" data-toggle="dropdown"
-								aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="true">
+								aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false	">
 								<c:choose>
 									<c:when test="${empty member.id}"> Login</c:when>
 									<c:otherwise> Logout</c:otherwise>
 								</c:choose>
 							</button>
-							<div class="dropdown-menu " aria-labelledby="navbarDropdown_1">
+							<div class="dropdown-menu	" aria-labelledby="navbarDropdown_1" x-placement="bottom-start"
+							style="position: absolute; transform: translate3d(139px, 56px, 0px); top: 0px; left: 0px; will-change: transform;">
 								<c:choose>
 									<c:when test="${empty member.id}">
 										<c:if test="${not empty cookie.id}">
