@@ -22,4 +22,4 @@
 	</section>
 	<jsp:include page="copyright.jsp" />
 </body>
-</html>
+</html> 
