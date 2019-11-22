@@ -113,14 +113,14 @@ header>div>div {
 
 #loginForm {
 	width: 100%;
-	background-color: #23272b;
-	color: #f3f3f3;
+	background-color: #ffffff;
+	color: #000000;
 }
 
 #logoutForm {
 	width: 100%;
-	background-color: #23272b;
-	color: #f3f3f3;
+	background-color: #ffffff;
+	color: #000000;
 }
 #logoutForm td{
 	border : 1px solid white;

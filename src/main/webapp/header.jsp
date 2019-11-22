@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -14,27 +16,18 @@
     
     <title>SAFE FOOD</title>
     <link rel="icon" href="img/favicon.png">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- animate CSS -->
     <link rel="stylesheet" href="css/animate.css">
-    <!-- owl carousel CSS -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- themify CSS -->
     <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- flaticon CSS -->
     <link rel="stylesheet" href="css/flaticon.css">
-    <!-- fontawesome CSS -->
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <!-- magnific CSS -->
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/gijgo.min.css">
-    <!-- niceselect CSS -->
     <link rel="stylesheet" href="css/nice-select.css">
-    <!-- slick CSS -->
     <link rel="stylesheet" href="css/slick.css">
-    <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 <script type="text/javascript">
 	function goSignUp() {
 		location.href = "RegisterGo.do";
@@ -54,10 +47,10 @@
 				<div class="row">
 					<div class="col-lg-12 col-sm-12 col-md-12">
 						<div class="sub_menu_social_icon">
+							헤더
 							<button type="button" id="loginBtn"
 								class="genric-btn success-border radius" data-toggle="dropdown"
-								aria-labelledby="navbarDropdown" aria-expanded="true"
-								aria-haspopup="true">
+								aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="true">
 								<c:choose>
 									<c:when test="${empty member.id}"> Login</c:when>
 									<c:otherwise> Logout</c:otherwise>
@@ -142,7 +135,7 @@
 					<div class="col-lg-12">
 						<nav
 							class="navbar navbar-expand-lg navbar-light justify-content-between">
-							<a class="navbar-brand" href="index2.jsp"> <img id='logoIMG'
+							<a class="navbar-brand" href="index.jsp"> <img id='logoIMG'
 								src='img/header-logo.jpg' alt="logo">
 							</a>
 							<button class="navbar-toggler" type="button"
@@ -156,7 +149,7 @@
 								class="collapse navbar-collapse main-menu-item justify-content-center"
 								id="navbarSupportedContent">
 								<ul class="navbar-nav">
-									<li class="nav-item"><a class="nav-link" href="index.html">공지사항</a>
+									<li class="nav-item"><a class="nav-link" href=#>공지사항</a>
 									</li>
 									<li class="nav-item"><a class="nav-link"
 										href="foodList.do">상품정보</a></li>
@@ -169,8 +162,6 @@
 											href="myFoodList.do">내 섭취정보</a></li>
 									</c:if>
 									<li class="nav-item"><a class="nav-link" href="qna.do">QnA</a></li>
-								
-
 								</ul>
 							</div>
 							<!--   <a href="#" class="btn_1 d-none d-lg-block">book now</a> -->
