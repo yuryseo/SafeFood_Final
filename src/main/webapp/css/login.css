@@ -410,11 +410,18 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
-
+.contact100-form-checkbox{
+		padding: 10px;
+}
 .login100-form-btn:hover {
   background-color: #57b846;
 }
-
+.input-checkbox100{
+	padding: 10px;
+}
+.ckb1{
+	padding: 10px;
+}
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
