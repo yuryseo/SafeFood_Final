@@ -324,13 +324,8 @@ public class MainController {
 		 * Member member = (Member) session.getAttribute("member"); String id =
 		 * member.getId();
 		 */
-		
-<<<<<<< HEAD
-		return "qna";
-=======
-		return "redirect:test.jsp";
->>>>>>> branch 'master' of https://lab.ssafy.com/whitefate/safefood.git
-	} 
-	
 
+		return "qna";
+
+	} 
 }
