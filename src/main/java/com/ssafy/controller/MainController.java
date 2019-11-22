@@ -32,8 +32,6 @@ public class MainController {
 	private MyFoodServiceImp myfoodservice;
 	@Autowired
 	private MemberServiceImp memberservice;
-	@Autowired
-	private QnAServiseImp qnaservice;
 	
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
@@ -327,7 +325,7 @@ public class MainController {
 		 * member.getId();
 		 */
 		
-		return "redirect:index.html";
+		return "qna";
 	} 
 	
 

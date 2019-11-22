@@ -1,0 +1,94 @@
+table[data-v-aaae29ee] {
+	width: 80%;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000
+}
+
+table td[data-v-aaae29ee] {
+	border-top: 1px solid silver
+}
+
+.aaa[data-v-aaae29ee] {
+	font-size: .5rem
+}
+
+.contentBox[data-v-a22cbfb6] {
+	width: 80%;
+	font-size: 1rem
+}
+
+.contentBox th[data-v-a22cbfb6] {
+	width: 150px;
+	background-color: #696969;
+	color: #fff;
+	border-radius: 5px 0 0 5px
+}
+
+.contentBox td[data-v-a22cbfb6] {
+	border: 1px solid #000;
+	border-radius: 0 5px 5px 0
+}
+
+.content[data-v-a22cbfb6] {
+	height: 100px
+}
+
+.replyBox[data-v-a22cbfb6] {
+	width: 80%
+}
+
+.contentBox[data-v-16ae6b95] {
+	width: 80%;
+	font-size: 1rem
+}
+
+.contentBox th[data-v-16ae6b95] {
+	width: 150px;
+	background-color: #696969;
+	color: #fff;
+	border-radius: 5px 0 0 5px
+}
+
+.contentBox td[data-v-16ae6b95] {
+	border: 1px solid #000;
+	border-radius: 0 5px 5px 0
+}
+
+.content[data-v-16ae6b95] {
+	height: 100px
+}
+
+.replyBox[data-v-16ae6b95] {
+	width: 80%
+}
+
+.contentBox[data-v-424814fa] {
+	width: 80%;
+	font-size: 1rem
+}
+
+.contentBox th[data-v-424814fa] {
+	width: 150px;
+	background-color: #696969;
+	color: #fff;
+	border-radius: 5px 0 0 5px
+}
+
+.contentBox td[data-v-424814fa] {
+	border: 1px solid #000;
+	border-radius: 0 5px 5px 0
+}
+
+.content[data-v-424814fa] {
+	height: 100px
+}
+
+.replyBox[data-v-424814fa] {
+	width: 80%
+}
+
+@font-face {
+	font-family: goyang;
+	src: url(../fonts/Goyang.3e6295ec.ttf);
+	font-size: 30px
+}
