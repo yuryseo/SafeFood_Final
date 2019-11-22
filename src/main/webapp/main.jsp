@@ -52,7 +52,10 @@
                 </div>
             </div>
         </div>
-        <form method="get" action="foodList.do" id="frm">
+       
+	</section>
+	<section id=''>
+		 <form  method="get" action="foodList.do" id="frm">
 			<table align="center">
 				<tr>
 					<td>정렬</td>
@@ -77,9 +80,6 @@
 				</tr>
 			</table>
 		</form>
-	</section>
-	<section id='searchForm'>
-		
 	</section>
 </body>
 </html>

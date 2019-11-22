@@ -12,7 +12,27 @@
 <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/index.css">
+<!-- Bootstrap CSS -->	
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- animate CSS -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- owl carousel CSS -->
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<!-- themify CSS -->
+<link rel="stylesheet" href="css/themify-icons.css">
+<!-- flaticon CSS -->
+<link rel="stylesheet" href="css/flaticon.css">
+<!-- fontawesome CSS -->
+<link rel="stylesheet" href="fontawesome/css/all.min.css">
+<!-- magnific CSS -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/gijgo.min.css">
+<!-- niceselect CSS -->
+<link rel="stylesheet" href="css/nice-select.css">
+<!-- slick CSS -->
+<link rel="stylesheet" href="css/slick.css">
+<!-- style CSS -->
+<link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
 function goDetail(foodcode){
 	location.href="foodDetail.do?foodcode=" + foodcode;

@@ -47,7 +47,6 @@
 						<div class="banner_text_iner">
 							<h1>WHAT WE PROVIDE</h1>
 							<p>건강한 삶을 위한 먹거리 프로젝트</p>
-							<a href="#" class="btn_1">Discover Now</a>
 						</div>
 					</div>
 				</div>
