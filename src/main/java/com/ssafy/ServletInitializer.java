@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SafeFoodFinalSeoul06SyrLssApplication.class);
+		return application.sources(SafeFoodWebSpringSeoul06SyrLssApplication.class);
 	}
 
 }
