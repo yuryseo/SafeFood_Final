@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ssafy.model.dao.IQnAMgr">
+	<insert id="insert" parameterType="qboard">
+		insert into qboard (userid,write_date,title,content)
+		values ( #{userid}
+		,current_date()
+		,#{title}
+		,#{content})
+	</insert>
+
+	<!-- insert into qboard(userid,write_date,title,content) values('java',current_date(),'qwe','qwe'); -->
+
+	<delete id="remove" parameterType="int">
+		delete from qboard where qno=#{qno}
+	</delete>
+	<update id="update" parameterType="qboard">
+		update qboard set write_date=current_date()
+		, title = #{title:VARCHAR}
+		, content=#{content:VARCHAR}
+		where qno = #{qno:VARCHAR}
+	</update>
+
+	<select id="search" parameterType="int" resultType="qboard">
+		select * from qboard where qno=#{qno}
+	</select>
+	<select id="searchAll" resultType="qboard">
+		select * from qboard order by qno desc
+	</select>
+
+	<insert id="insertAnswer" parameterType="aboard">
+		insert into aboard (qno,userid,write_date,content)
+		values ( #{qno}
+		,#{userid}
+		,current_date()
+		,#{content}
+		)
+	</insert>
+	<delete id="removeAnswer" parameterType="int">
+		delete from aboard where ano=#{ano}
+	</delete>
+	<select id="searchAnswer" parameterType="int" resultType="aboard">
+		select * from aboard where ano=#{ano}
+	</select>
+	<select id="searchAnswerAll"  parameterType="int"	resultType="aboard">
+		select * from aboard where qno=#{qno}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

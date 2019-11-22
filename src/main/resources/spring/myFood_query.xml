@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.model.dao.IMyFoodMgr">
+	<insert id="insert" parameterType="myfood">
+		insert into myfood(id, code, quantity)
+		values(#{id:VARCHAR}
+   		        ,#{code:INTEGER}
+   		        ,#{quantity:INTEGER}
+   		       )
+	</insert>
+	
+	<select id="search" parameterType="searchmyfoodinfo" resultType="myfood">
+		select id, code, quantity, name, maker, material, img
+		from myfood
+		left join food
+		using (code)
+		where id=#{id} and code=#{code}
+	</select>
+	
+
+	<select id="searchAll" parameterType="pagebean"	resultType="myfood">
+		select id, code, quantity, name, maker, material, img
+		from myfood
+		left join food
+		using (code)
+   		<!-- 동적 쿼리시 조건에 의해 where 나 and를 붙여주는 태그  -->
+   		<where>
+   			<if test='key != null and key!="all"'>
+   				<if test="word != null">
+					<choose>
+						<when test="key == 'searchName'">
+							name like concat('%',#{word},'%')
+						</when>
+						<when test="key == 'searchMaker'">
+							maker like concat('%',#{word},'%')   
+						</when>
+						<when test="key == 'searchMaterial'">
+							material like concat('%',#{word},'%')
+						</when>
+						<when test="key == 'searcEtc'">
+							name like concat('%',#{word},'%')
+						</when>
+					</choose>
+				</if>
+   			</if>
+   		</where>
+   </select>
+   
+   <delete id="remove" 		parameterType="searchmyfoodinfo">
+   		delete from myfood where id=#{id} and code=#{code}
+   </delete>
+   
+   <update id="update"		parameterType="myfood">
+   		update myfood set quantity=#{quantity:INTEGER}
+   		where  id = #{id:VARCHAR} and code = #{code:INTEGER}
+   </update>
+   
+</mapper>
+
+
