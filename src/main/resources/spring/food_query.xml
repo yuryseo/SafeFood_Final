@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.model.dao.IFoodMgr">
+	<insert id="insert" parameterType="food">
+		insert into food(code, name, maker, material, servingWt, calory, carbo, protein, fat, sugar, natrium, chole, fattyacid, transfat, year, img)
+		values(#{code:INTEGER}
+   		        ,#{name:VARCHAR}
+   		        ,#{maker:VARCHAR}
+   		        ,#{material:VARCHAR}
+   		        ,#{servingWt:INTEGER}
+   		        ,#{calory:DOUBLE}
+   		        ,#{carbo:DOUBLE}
+   		        ,#{protein:DOUBLE}
+   		        ,#{fat:DOUBLE}
+   		        ,#{sugar:DOUBLE}
+   		        ,#{natrium:DOUBLE}
+   		        ,#{chole:DOUBLE}
+   		        ,#{fattyacid:DOUBLE}
+   		        ,#{transfat:DOUBLE}
+   		        ,#{year:INTEGER}
+   		        ,#{img:VARCHAR}
+   		        )
+	</insert>
+
+	<select id="search" parameterType="int" resultType="food">
+		select *
+		from food
+		where code=#{code}
+	</select>
+	
+	<select id="All" 	resultType="food">
+		select *
+		from food
+   </select>
+   
+	<select id="searchAll" parameterType="pagebean"	resultType="food">
+		select *
+		from food
+   		<where>
+   			<if test='key != null and key!="all"'>
+   				<if test="word != null">
+					<choose>
+						<when test="key == 'searchName'">
+							name like concat('%',#{word},'%')
+						</when>
+						<when test="key == 'searchMaker'">
+							maker like concat('%',#{word},'%')   
+						</when>
+						<when test="key == 'searchMaterial'">
+							material like concat('%',#{word},'%')
+						</when>
+						<when test="key == 'searcEtc'">
+							name like concat('%',#{word},'%')
+						</when>
+					</choose>
+				</if>
+   			</if>
+   		</where>
+   </select>
+
+</mapper>
+
+
