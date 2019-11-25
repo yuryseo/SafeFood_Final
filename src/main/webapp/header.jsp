@@ -1,39 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!doctype html>
-
+<html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
-<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <title>SAFE FOOD</title>
-    <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/gijgo.min.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
 <script type="text/javascript">
 	function goSignUp() {
 		location.href = "RegisterGo.do";
 	}
 
-	function goMemberInfo() {
-		location.href = "memberInfoGo.do";
+	function goMemberInfo(flag) {
+		if(flag){
+			alert("로그인이 필요한 기능입니다.");
+			event.stopPropagation();
+		}else{
+			location.href = "memberInfoGo.do";
+		}
 	}
 </script>
 </head>
@@ -48,7 +31,7 @@
 						<div class="sub_menu_social_icon">
 							<button type="button" id="loginBtn"
 								class="genric-btn success-border radius" data-toggle="dropdown"
-								aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false	">
+								aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
 								<c:choose>
 									<c:when test="${empty member.id}"> Login</c:when>
 									<c:otherwise> Logout</c:otherwise>
@@ -78,15 +61,13 @@
 											</div>
 
 											<div class="flex-sb-m w-full p-b-48">
-												<div class="contact100-form-checkbox">
-													<input class="input-checkbox100" id="ckb1" type="checkbox"
-														name="remember-me" /> <label class="label-checkbox100"
-														for="ckb1"> Remember me </label>
+												<div class="contact100-form-checkbox" align="right" >
+													<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
+													<label class="label-checkbox100" for="ckb1"> Remember me &nbsp;</label>
 												</div>
-
 												<div>
-													<a href="findId.jsp" class="txt3"> 아이디 찾기 </a> <a href="#"
-														class="txt3"> 비밀번호 찾기 </a>
+													<a href="findId.jsp" class="txt3">&nbsp;아이디 찾기</a> 
+													<a href="findPassword.jsp"	class="txt3">비밀번호 찾기 </a>
 												</div>
 											</div>
 
@@ -119,7 +100,7 @@
 							<button type="button" class="genric-btn success-border radius"
 								id="signUpBtn" onclick="goSignUp();">SignUp</button>
 							<button type="button" class="genric-btn success-border radius"
-								id="MemberInfoBtn" onclick="goMemberInfo();">회원정보</button>
+								id="MemberInfoBtn" onclick="goMemberInfo(${empty member.id});">회원정보</button>
 
 						</div>
 					</div>
@@ -171,7 +152,5 @@
 		</div>
 	</section>
 	<!-- section part end-->
-
-
 </body>
 </html>

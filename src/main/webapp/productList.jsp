@@ -1,38 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Required meta tags -->
 <meta charset="UTF-8">
-<title>PRODUCT LIST</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/index.css">
-<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
-<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<!-- Bootstrap CSS -->	
+
+<title>PRODUCT LIST</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- animate CSS -->
 <link rel="stylesheet" href="css/animate.css">
-<!-- owl carousel CSS -->
 <link rel="stylesheet" href="css/owl.carousel.min.css">
-<!-- themify CSS -->
 <link rel="stylesheet" href="css/themify-icons.css">
-<!-- flaticon CSS -->
 <link rel="stylesheet" href="css/flaticon.css">
-<!-- fontawesome CSS -->
 <link rel="stylesheet" href="fontawesome/css/all.min.css">
-<!-- magnific CSS -->
 <link rel="stylesheet" href="css/magnific-popup.css">
 <link rel="stylesheet" href="css/gijgo.min.css">
-<!-- niceselect CSS -->
 <link rel="stylesheet" href="css/nice-select.css">
-<!-- slick CSS -->
 <link rel="stylesheet" href="css/slick.css">
-<!-- style CSS -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index.css">
+
 <script type="text/javascript">
 function goDetail(foodcode){
 	location.href="foodDetail.do?foodcode=" + foodcode;
@@ -41,9 +36,11 @@ function goDetail(foodcode){
 </head>
 <body>
 	<jsp:include page="header.jsp" />
+	<jsp:include page="main.jsp" />
 	<section id='content'>
-		<jsp:include page="main.jsp" />
 		<article id="contentArea">
+			<br>
+			<h2 align="center">상품 목록</h2>
 			<table id='listTable' align='center' width='80%'>
 				<c:forEach items="${list}" var="food">
 					<tr id='listTableFistTr'>
