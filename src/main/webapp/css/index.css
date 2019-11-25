@@ -135,7 +135,7 @@ header>div>div {
 }
 
 #listTableFistTd {
-	border-bottom: 5px solid #f3f3f3;
+	border-bottom: 2px solid black;
 }
 
 #listTableLastTr {

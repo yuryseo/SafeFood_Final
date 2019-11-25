@@ -10,11 +10,8 @@
 <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<title>PRODUCT LIST</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -27,6 +24,7 @@
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index.css">
+<title>PRODUCT LIST</title>
 
 <script type="text/javascript">
 function goDetail(foodcode){
@@ -67,7 +65,7 @@ function goDetail(foodcode){
 					</tr>
 					<tr id='listTableLastTr'>
 						<td align='left'>
-							<button type='button' class='btn btn-info'>	<i class='fa fa-plus'></i> 추가</button>
+							<button type='button' class='btn btn-info' name="${food.code}" onclick="goDetail(this.name);">	<i class='fa fa-plus'></i> 추가</button>
 							<button type='button' class='btn btn-info'>	<i class='fa fa-star'></i> 찜</button>
 						</td>
 					</tr>

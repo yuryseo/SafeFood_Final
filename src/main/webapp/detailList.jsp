@@ -38,10 +38,6 @@ table {
 	width: 80%;
 }
 
-#table td {
-	text-align: left;
-}
-
 #table th {
 	width: 5%;
 }
@@ -59,8 +55,8 @@ table {
 				<form method='post' action="myFoodInsert.do">
 					<table id="table" class="table" style="margin: auto;">
 						<tr>
-							<td rowspan='6' width='30%' align="center"><img id="Picture"
-								src="${food.img }" width='200px' height='200px'></td>
+							<td rowspan='6' width='30%' align="center">
+							<img id="Picture" src="${food.img }" width='200px' height='200px'></td>
 						</tr>
 						<tr>
 							<th>제품명</th>
