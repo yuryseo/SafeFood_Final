@@ -141,6 +141,7 @@
 										<li class="nav-item"><a class="nav-link"
 											href="myFoodList.do">내 섭취정보</a></li>
 									</c:if>
+									<li class="nav-item"><a class="nav-link" href="guideProgram.do">진단 프로그램</a></li>
 									<li class="nav-item"><a class="nav-link" href="qna.do">QnA</a></li>
 								</ul>
 							</div>

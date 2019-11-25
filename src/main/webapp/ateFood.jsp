@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index.css">
+
 <script type="text/javascript">
 function goDetail(foodcode){
 	location.href="foodDetail.do?foodcode=" + foodcode;
@@ -67,5 +68,10 @@ function goDetail(foodcode){
 		</article>
 	</section>
 	<jsp:include page="copyright.jsp" />
+	
+	<script src="js/jquery.magnific-popup.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/gijgo.min.js"></script>
+	<script src="js/custom.js"></script>
 </body>
 </html>

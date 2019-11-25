@@ -24,9 +24,6 @@
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index.css">
-
-
-
 <style>
 #title {
 	text-align: center;

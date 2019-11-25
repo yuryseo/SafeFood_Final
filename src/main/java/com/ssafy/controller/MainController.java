@@ -326,6 +326,12 @@ public class MainController {
 		 */
 
 		return "qna";
-
-	} 
+	}
+	
+	@GetMapping("guideProgram.do")
+	public String guideProgram( HttpSession session, Model model) {
+		
+		return "guideProgram";
+	}
+	
 }
