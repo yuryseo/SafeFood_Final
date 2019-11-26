@@ -3,6 +3,8 @@ package com.ssafy.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.model.dto.Aboard;
+import com.ssafy.model.dto.Member;
 import com.ssafy.model.dto.Qboard;
 import com.ssafy.service.QnAServiseImp;
 
@@ -124,5 +127,19 @@ public class QnaController {
 		System.out.println("Asdasdasdasdasda" + qno);
 		qnaservice.hitup(qno);
 		return handleSuccess("수정 완료");
+	}
+	
+	@GetMapping("getLoginInfo.do")
+	public Map getLoginInfo(HttpSession session) {
+		Map<String, Member> loginInfo = new HashMap<String, Member>();
+		Member m = (Member) session.getAttribute("member");
+		System.out.println(m);
+		if(m != null) {
+			loginInfo.put("data", m);
+		}else {
+			Member tempM = new Member("", "", "", "", "", "", "");
+			loginInfo.put("data", tempM);			
+		}
+		return loginInfo;
 	}
 }
