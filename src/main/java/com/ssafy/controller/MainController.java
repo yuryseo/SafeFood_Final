@@ -32,7 +32,7 @@ public class MainController {
 	private MyFoodServiceImp myfoodservice;
 	@Autowired
 	private MemberServiceImp memberservice;
-	
+
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
 		ModelAndView mav = new ModelAndView("ErrorHandler");
@@ -45,20 +45,22 @@ public class MainController {
 		session.invalidate();
 		return "redirect:index.jsp";
 	}
+
 	@GetMapping("index.do")
 	String index(HttpSession session) {
-		
-		  List<Food> searchTop4 =foodservice.searchcountTop4();
-		  session.setAttribute("searchTop4", searchTop4);
-		 
+		List<Food> searchTop4 = foodservice.searchcountTop4();
+		session.setAttribute("searchTop4", searchTop4);
+		List<Food> intakeTop4 = foodservice.intakecountTop4();
+		session.setAttribute("intakeTop4", intakeTop4);
 		return "redirect:index.jsp";
 	}
+
 	@PostMapping("login.do")
 	protected String login(HttpSession session, String id, String password) throws Exception {
 		if (memberservice.login(id, password)) {
 			Member m = memberservice.search(id);
 			session.setAttribute("member", m);
-			
+
 		}
 		return "redirect:index.jsp";
 
@@ -142,7 +144,7 @@ public class MainController {
 		String mphone = m.getPhone();
 		if (mname.equals(name) && mphone.equals(phone)) {
 			model.addAttribute("mid", mid);
-		}else {
+		} else {
 			throw new SafefoodException("회원정보를 정학히 입력해주세요");
 		}
 
@@ -161,7 +163,7 @@ public class MainController {
 			session.invalidate();
 			System.out.println("멤버가 없지여");
 			throw new SafefoodException("회원정보를 정학히 입력해주세요");
-			
+
 		}
 		String mid = m.getId();
 		String mname = m.getName();
@@ -169,10 +171,10 @@ public class MainController {
 		String mpassword = m.getPassword();
 		if (mid.equals(id) && mname.equals(name) && mphone.equals(phone)) {
 			model.addAttribute("password", mpassword);
-		}else {
-			//model.addAttribute("msg", "회원정보를 정학히 입력해주세요");
+		} else {
+			// model.addAttribute("msg", "회원정보를 정학히 입력해주세요");
 			throw new SafefoodException("회원정보를 정학히 입력해주세요");
-			//return "ErrorHandler";
+			// return "ErrorHandler";
 		}
 
 		return "findPassword";
@@ -180,7 +182,7 @@ public class MainController {
 
 	@GetMapping("foodList.do")
 	public String foodList(String searchOption, String searchItem, String sortOption, Model model) {
-		System.out.println("foodList............"+searchOption+searchItem+sortOption);
+		System.out.println("foodList............" + searchOption + searchItem + sortOption);
 		try {
 			List<Food> list;
 			String key = searchOption;
@@ -191,8 +193,8 @@ public class MainController {
 				word = "";
 				sortKey = "sortName";
 			}
-		//	list = foodservice.All();
-			System.out.println(key+"          "+word);
+			// list = foodservice.All();
+			System.out.println(key + "          " + word);
 			list = foodservice.searchAll(key, word);
 			Collections.sort(list, new foodSortComparator(sortKey));
 			model.addAttribute("list", list);
@@ -271,7 +273,7 @@ public class MainController {
 		model.addAttribute("list", list2);
 		return "ateFood";
 	}
-	
+
 	@PostMapping("myFoodUpdate.do")
 	public String myFoodUpdate(int code, int quantity, HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("member");
@@ -286,12 +288,12 @@ public class MainController {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
 		myfoodservice.remove(id, code);
-		//session.invalidate();
+		// session.invalidate();
 		return "redirect:myFoodList.do";
 	}
 
 	@PostMapping("myFoodInsert.do")
-	public String myFoodInsert(int code, int quantity, HttpSession session){
+	public String myFoodInsert(int code, int quantity, HttpSession session) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
 		System.out.println("----code : " + code + ", quantity : " + quantity + ", id : " + id);
@@ -305,13 +307,7 @@ public class MainController {
 		}
 		return "redirect:myFoodList.do";
 	}
-	
-	@GetMapping("BestIntake.do")
-	public String BestIntake(HttpSession session) {
-		List<Food> intakeTop4 = foodservice.intakecountTop4();
-		session.setAttribute("intakeTop4", intakeTop4);
-		return "bestintake";
-	}
+
 	private class foodSortComparator implements Comparator<Food> {
 		String sortKey;
 
@@ -333,9 +329,9 @@ public class MainController {
 			return res;
 		}
 	};
-	
+
 	@GetMapping("qna.do")
-	public String qna( HttpSession session, Model model) {
+	public String qna(HttpSession session, Model model) {
 		/*
 		 * Member member = (Member) session.getAttribute("member"); String id =
 		 * member.getId();
@@ -343,11 +339,11 @@ public class MainController {
 
 		return "qna";
 	}
-	
+
 	@GetMapping("guideProgram.do")
-	public String guideProgram( HttpSession session, Model model) {
-		
+	public String guideProgram(HttpSession session, Model model) {
+
 		return "guideProgram";
 	}
-	
+
 }

@@ -1,16 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!doctype html>	
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!doctype html>
 <html>
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -47,27 +53,29 @@ function isLogined(flag){
 				<div class="col-lg-12">
 					<div class="booking_menu">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active"id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
-								aria-controls="hotel" aria-selected="true">식품 검색</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="tricket-tab" data-toggle="tab" href="#tricket" role="tab"
-								aria-controls="tricket" aria-selected="false" onclick="isLogined(${empty member.id})">내 섭취정보 검색</a>
-							</li>
+							<li class="nav-item"><a class="nav-link active"
+								id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
+								aria-controls="hotel" aria-selected="true">식품 검색</a></li>
+							<li class="nav-item"><a class="nav-link" id="tricket-tab"
+								data-toggle="tab" href="#tricket" role="tab"
+								aria-controls="tricket" aria-selected="false"
+								onclick="isLogined(${empty member.id})">내 섭취정보 검색</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<div class="searchtop4">
-					<div class="form-row">
-						<ul >자주 검색한 식품명 검색   &nbsp; 	
-						
-						<c:forEach  var='f' items="${searchTop4}">
-							<a href="foodDetail.do?foodcode=${f.code}">&nbsp; &nbsp; ${f.name}&nbsp; &nbsp; </a>
-						</c:forEach> 
-						
-						</ul></div> 
+						<div class="form-row">
+							<ul>
+								자주 검색한 식품명 검색 &nbsp;
+
+								<c:forEach var='f' items="${searchTop4}">
+									<a href="foodDetail.do?foodcode=${f.code}">&nbsp; &nbsp;
+										${f.name}&nbsp; &nbsp; </a>
+								</c:forEach>
+
+							</ul>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -75,7 +83,7 @@ function isLogined(flag){
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="hotel" role="tabpanel"
 								aria-labelledby="hotel-tab">
-								<div class="booking_form">									
+								<div class="booking_form">
 									<form method="get" action="foodList.do" id="frm">
 										<div class="form-row">
 											<div class="form_colum">
@@ -86,7 +94,8 @@ function isLogined(flag){
 												</select>
 											</div>
 											<div class="form_colum">
-												<select class="nc_select" id="searchOption" name="searchOption">
+												<select class="nc_select" id="searchOption"
+													name="searchOption">
 													<option selected>검색 조건</option>
 													<option id="searchName" value="searchName">상품명</option>
 													<option id="searchMaker" value="searchMaker">제조사</option>
@@ -95,10 +104,12 @@ function isLogined(flag){
 												</select>
 											</div>
 											<div class="form_colum">
-												<input type="text" class="nc_input" id="searchItem" name="searchItem" placeholder="검색 단어">
+												<input type="text" class="nc_input" id="searchItem"
+													name="searchItem" placeholder="검색 단어">
 											</div>
 											<div class="form_btn">
-												<button type="submit" class="btn_1" id="searchBtn" name="searchBtn">검색</button>
+												<button type="submit" class="btn_1" id="searchBtn"
+													name="searchBtn">검색</button>
 											</div>
 										</div>
 									</form>
@@ -117,7 +128,8 @@ function isLogined(flag){
 												</select>
 											</div>
 											<div class="form_colum">
-												<select class="nc_select" id="searchOption" name="searchOption">
+												<select class="nc_select" id="searchOption"
+													name="searchOption">
 													<option selected>검색 조건</option>
 													<option id="searchName" value="searchName">상품명</option>
 													<option id="searchMaker" value="searchMaker">제조사</option>
@@ -126,10 +138,12 @@ function isLogined(flag){
 												</select>
 											</div>
 											<div class="form_colum">
-												<input type="text" class="nc_input" id="searchItem" name="searchItem" placeholder="검색 단어">
+												<input type="text" class="nc_input" id="searchItem"
+													name="searchItem" placeholder="검색 단어">
 											</div>
 											<div class="form_btn">
-												<button type="submit" class="btn_1" id="searchBtn" name="searchBtn">검색</button>
+												<button type="submit" class="btn_1" id="searchBtn"
+													name="searchBtn">검색</button>
 											</div>
 										</div>
 									</form>
@@ -138,7 +152,7 @@ function isLogined(flag){
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -150,113 +164,48 @@ function isLogined(flag){
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
 					<div class="section_tittle text-center">
-						<h2>Top Places to visit</h2>
-						<p>Waters make fish every without firmament saw had. Morning
-							air subdue. Our. Air very one. Whales grass is fish whales
-							winged.</p>
+						<h2>Top Foods</h2>
+						<p>사람들이 제일 많이 먹은 식품 	</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-6 col-md-6">
-					<div class="single_place">
-						<img src="img/single_place_1.png" alt="">
-						<div
-							class="hover_Text d-flex align-items-end justify-content-between">
-							<div class="hover_text_iner">
-								<a href="#" class="place_btn">travel</a>
-								<h3>Saintmartine Iceland</h3>
-								<p>Technaf, Bangladesh</p>
-								<div class="place_review">
-									<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <span>(210 review)</span>
+
+				<c:forEach items="${intakeTop4}" var="food">
+					<div class="col-lg-3 col-md-3">
+						<div class="single_place">
+							<img src="${food.img}" alt="">
+							<div
+								class="hover_Text d-flex align-items-end justify-content-between">
+								<div class="hover_text_iner">
+									<h3>${food.name}</h3>
+									<a href="foodDetail.do?foodcode=${food.code}" class="place_btn">상세보기</a>
+									
+									<div class="place_review">
+										<a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a> <a href="#"><i
+											class="fas fa-star"></i></a> <a href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a> <a href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a> <a href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a>
+											 <ul>(210 review)</ul>
+									</div>
 								</div>
-							</div>
-							<div class="details_icon text-right">
+								<!-- <div class="details_icon text-right">
 								<i class="ti-share"></i>
+							</div> -->
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="single_place">
-						<img src="img/single_place_2.png" alt="">
-						<div
-							class="hover_Text d-flex align-items-end justify-content-between">
-							<div class="hover_text_iner">
-								<a href="#" class="place_btn">travel</a>
-								<h3>Saintmartine Iceland</h3>
-								<p>Technaf, Bangladesh</p>
-								<div class="place_review">
-									<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <span>(210 review)</span>
-								</div>
-							</div>
-							<div class="details_icon text-right">
-								<i class="ti-share"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="single_place">
-						<img src="img/single_place_3.png" alt="">
-						<div
-							class="hover_Text d-flex align-items-end justify-content-between">
-							<div class="hover_text_iner">
-								<a href="#" class="place_btn">travel</a>
-								<h3>Saintmartine Iceland</h3>
-								<p>Technaf, Bangladesh</p>
-								<div class="place_review">
-									<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <span>(210 review)</span>
-								</div>
-							</div>
-							<div class="details_icon text-right">
-								<i class="ti-share"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="single_place">
-						<img src="img/single_place_4.png" alt="">
-						<div
-							class="hover_Text d-flex align-items-end justify-content-between">
-							<div class="hover_text_iner">
-								<a href="#" class="place_btn">travel</a>
-								<h3>Saintmartine Iceland</h3>
-								<p>Technaf, Bangladesh</p>
-								<div class="place_review">
-									<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <span>(210 review)</span>
-								</div>
-							</div>
-							<div class="details_icon text-right">
-								<i class="ti-share"></i>
-							</div>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
+
+
 				<a href="#" class="btn_1 text-cnter">Discover more</a>
 			</div>
 		</div>
 	</section>
 	<!--top place end-->
 
-	<!--top place start-->
+	<!--event_part start-->
 	<section class="event_part section_padding">
 		<div class="container">
 			<div class="row">
@@ -356,7 +305,7 @@ function isLogined(flag){
 													class="fas fa-star"></i></a>
 											</div>
 										</div>
-										<a href="#" class="btn_1">Plan Details</a>
+										<a href="foodList.do" class="btn_1">전체 상품 정보 보기</a>
 									</div>
 								</div>
 							</div>
@@ -366,7 +315,7 @@ function isLogined(flag){
 			</div>
 		</div>
 	</section>
-	<!--top place end-->
+	<!-- event_part end-->
 
 	<!--::industries start::-->
 	<section class="hotel_list section_padding">
