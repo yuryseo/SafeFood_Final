@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>MAIN</title>
+<script type="text/javascript">
+function isLogined(flag){
+	if(flag){
+		alert("로그인이 필요한 기능입니다.");
+		event.stopPropagation();
+	}
+}
+
+</script>
 </head>
 <body>
 	<input type="hidden" id="detailItem" value="">
