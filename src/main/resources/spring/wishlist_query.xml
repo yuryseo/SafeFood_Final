@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.model.dao.IWishlistMgr">
+
+	<insert id="insert" parameterType="wishlist">
+		insert into wishlist(id, code)
+		values(#{id:VARCHAR} ,#{code:INTEGER})
+	</insert>
+
+	<select id="search" parameterType="string" resultType="wishlist">
+	<!--  리스트로 리턴해야해 -->
+		select id, code
+		from wishlist
+		where
+		id = #{id}
+	</select>
+
+	<delete id = "delete" parameterType="wishlist">
+		delete from wishlist where id=#{id} and id = #{id}
+	</delete>
+</mapper>
+
+

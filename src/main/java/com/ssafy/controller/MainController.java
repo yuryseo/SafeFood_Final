@@ -17,12 +17,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ssafy.model.dto.Food;
 import com.ssafy.model.dto.Member;
-import com.ssafy.model.dto.SafefoodException;
 import com.ssafy.model.dto.MyFood;
+import com.ssafy.model.dto.SafefoodException;
+import com.ssafy.model.dto.Wishlist;
 import com.ssafy.service.FoodServiceImp;
 import com.ssafy.service.MemberServiceImp;
 import com.ssafy.service.MyFoodServiceImp;
-import com.ssafy.service.QnAServiseImp;
+import com.ssafy.service.WishlistServiceImp;
 
 @Controller
 public class MainController {
@@ -32,6 +33,8 @@ public class MainController {
 	private MyFoodServiceImp myfoodservice;
 	@Autowired
 	private MemberServiceImp memberservice;
+	@Autowired
+	private WishlistServiceImp wishlistservice;
 
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
@@ -42,7 +45,7 @@ public class MainController {
 
 	@GetMapping("/")
 	String start(HttpSession session) {
-		session.invalidate();
+		//session.invalidate();
 		return "redirect:index.jsp";
 	}
 
@@ -60,8 +63,11 @@ public class MainController {
 		if (memberservice.login(id, password)) {
 			Member m = memberservice.search(id);
 			session.setAttribute("member", m);
-
 		}
+		List<Food> searchTop4 = foodservice.searchcountTop4();
+		session.setAttribute("searchTop4", searchTop4);
+		List<Food> intakeTop4 = foodservice.intakecountTop4();
+		session.setAttribute("intakeTop4", intakeTop4);
 		return "redirect:index.jsp";
 
 	}
@@ -69,6 +75,10 @@ public class MainController {
 	@PostMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
+		List<Food> searchTop4 = foodservice.searchcountTop4();
+		session.setAttribute("searchTop4", searchTop4);
+		List<Food> intakeTop4 = foodservice.intakecountTop4();
+		session.setAttribute("intakeTop4", intakeTop4);
 		return "redirect:index.jsp";
 	}
 
@@ -210,6 +220,8 @@ public class MainController {
 	public String foodDetail(int foodcode, HttpSession session, Model model) {
 		int code = foodcode;
 		Food food = foodservice.search(code);
+		foodservice.searchcount(foodcode);
+		System.out.println("searchcount++");
 		String allergies;
 		Member member = (Member) session.getAttribute("member");
 		if (member != null) {
@@ -248,6 +260,30 @@ public class MainController {
 		}
 		model.addAttribute("list", list2);
 		return "ateFood";
+	}
+
+	//찜 누르는 거 디비에 추가하게
+	
+	@GetMapping("wishlist.do")	// 리스트 불러오는거
+	public String WishListGet(HttpSession session, Model model) {
+		System.out.println("wishlist");
+		Member member = (Member) session.getAttribute("member");
+		String id = member.getId();
+		System.out.println(id);
+		List<Wishlist> list = wishlistservice.search(id); // 해당아이디에 맞는 리스트만 불러옴
+		// 리턴 타입을 새로 만들어줘야해
+		List<Food> find = null;
+		if (list != null) {
+			
+			for (int i = 0; i < list.size(); i++) {
+				int code = list.get(i).getCode();
+				System.out.println((i+1)+"번째 wish list food......."+code);
+				Food food  = foodservice.search(code);
+				find.add(food);
+			}
+			//model.addAttribute("list",  find);
+		}
+		return "wishlist";
 	}
 
 	@PostMapping("myFoodList.do")
@@ -303,8 +339,9 @@ public class MainController {
 			myfoodservice.insert(new MyFood(id, code, quantity));
 		} else {
 			myfoodservice.update(new MyFood(id, code, quantity + find.getQuantity()));
-			foodservice.intakecount(code);
 		}
+		foodservice.intakecount(code);
+		System.out.println("intake count++");
 		return "redirect:myFoodList.do";
 	}
 

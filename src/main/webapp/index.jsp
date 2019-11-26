@@ -182,12 +182,12 @@ function isLogined(flag){
 									<a href="foodDetail.do?foodcode=${food.code}" class="place_btn">상세보기</a>
 									
 									<div class="place_review">
-										<a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a> <a href="#"><i
-											class="fas fa-star"></i></a> <a href="foodDetail.do?foodcode=${food.code}"><i
-											class="fas fa-star"></i></a> <a href="foodDetail.do?foodcode=${food.code}"><i
-											class="fas fa-star"></i></a> <a href="foodDetail.do?foodcode=${food.code}"><i
-											class="fas fa-star"></i></a>
-											 <ul>(210 review)</ul>
+										<a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
+										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
+										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
+										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
+										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
+											 <ul style="color: white">${food.intakecount} takes</ul>
 									</div>
 								</div>
 								<!-- <div class="details_icon text-right">
@@ -199,7 +199,7 @@ function isLogined(flag){
 				</c:forEach>
 
 
-				<a href="#" class="btn_1 text-cnter">Discover more</a>
+				<a href="foodList.do" class="btn_1 text-cnter">전체 상품 목록 보러가기</a>
 			</div>
 		</div>
 	</section>
@@ -323,7 +323,7 @@ function isLogined(flag){
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
 					<div class="section_tittle text-center">
-						<h2>Top Hotel & Restaurants</h2>
+						<h2>찜한 식품 목록</h2>
 						<p>Waters make fish every without firmament saw had. Morning
 							air subdue. Our. Air very one. Whales grass is fish whales
 							winged.</p>
@@ -344,72 +344,6 @@ function isLogined(flag){
 							</div>
 							<div class="share_icon">
 								<i class="ti-share"></i>
-							</div>
-						</div>
-						<div class="hotel_text_iner">
-							<h3>
-								<a href="#"> Hotel Polonia</a>
-							</h3>
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <span>(210 review)</span>
-							</div>
-							<p>London, United Kingdom</p>
-							<h5>
-								From <span>$500</span>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="single_ihotel_list">
-						<img src="img/ind/industries_2.png" alt="">
-						<div class="hover_text">
-							<div class="hotel_social_icon">
-								<ul>
-									<li><a href="#"><i class="ti-facebook"></i></a></li>
-									<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-									<li><a href="#"><i class="ti-linkedin"></i></a></li>
-								</ul>
-							</div>
-							<div class="share_icon">
-								<i class="ti-share"></i>
-							</div>
-						</div>
-						<div class="hotel_text_iner">
-							<h3>
-								<a href="#"> Hotel Polonia</a>
-							</h3>
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <span>(210 review)</span>
-							</div>
-							<p>London, United Kingdom</p>
-							<h5>
-								From <span>$500</span>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="single_ihotel_list">
-						<img src="img/ind/industries_3.png" alt="">
-						<div class="hover_text">
-							<div class="hover_text">
-								<div class="hotel_social_icon">
-									<ul>
-										<li><a href="#"><i class="ti-facebook"></i></a></li>
-										<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-										<li><a href="#"><i class="ti-linkedin"></i></a></li>
-									</ul>
-								</div>
-								<div class="share_icon">
-									<i class="ti-share"></i>
-								</div>
 							</div>
 						</div>
 						<div class="hotel_text_iner">

@@ -13,6 +13,7 @@
 		<typeAlias type="com.ssafy.model.dto.Qboard"   		alias="qboard"/>
 		<typeAlias type="com.ssafy.model.dto.Aboard"   		alias="aboard"/>
 		<typeAlias type="com.ssafy.model.dto.PageBean"   	alias="pagebean"/>
+		<typeAlias type="com.ssafy.model.dto.Wishlist"   	alias="wishlist"/>
 		<typeAlias type="com.ssafy.model.dto.SearchMyFoodInfo"   	alias="searchmyfoodinfo"/>
 	</typeAliases>
 	<mappers>
@@ -20,6 +21,7 @@
 	 <mapper resource="spring/myfood_query.xml" />
 	 <mapper resource="spring/member_query.xml" />
 	 <mapper resource="spring/qna_query.xml" />
+	 <mapper resource="spring/wishlist_query.xml" />
 	</mappers>
 </configuration>
 

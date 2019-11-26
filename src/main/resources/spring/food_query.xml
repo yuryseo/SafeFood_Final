@@ -63,20 +63,20 @@
 		</where>
 	</select>
 	<update id="searchcount" parameterType="int">
-		update food set searchcount=#{searchcount:INTEGER}+1
+		update food set searchcount=searchcount+1
 		where code = #{code:INTEGER}
 	</update>
 	<update id="intakecount" parameterType="int">
-		update food set intakecount=#{intakecount:INTEGER}+1
+		update food set intakecount=intakecount+1
 		where code = #{code:INTEGER}
 	</update>
 
 	<select id="searchcountTop4" resultType="food">
-		select code, name, maker, img
+		select code, name, maker, img, searchcount, intakecount
 		from food order by searchcount desc limit 0,4;
 	</select>
 	<select id="intakecountTop4" resultType="food">
-		select code, name, maker, img
+		select code, name, maker, img, searchcount, intakecount
 		from food order by intakecount desc limit 0,4;
 	</select>
 
