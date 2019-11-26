@@ -40,16 +40,17 @@ table {
 }
 </style>
 <script type="text/javascript">
-function goAteFood(flag) {
-	console.log("여기옴");
+function goAteFood(flag, flag2) {
 	if(flag){
-		console.log("1");
 		alert("로그인이 필요한 기능입니다.");
 		return false;
-	}else{
-		console.log("2");
-		return true;
 	}
+	if(!flag2){
+		if(confirm("알러지 성분이 있는 식품입니다! 섭취하시겠습니까?") == true)
+			return true;
+		return false;
+	}
+	return true;
 }
 </script>
 </head>
@@ -90,7 +91,8 @@ function goAteFood(flag) {
 								name='quantity' required="required" min="1" id='person' />
 								<p />
 								<br />
-								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id});" value="추가"/>
+								<input type="submit" class='btn btn-info'
+									onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" value="추가"/>
 								<button type='button' class='btn btn-info'>찜</button>
 							</th>
 							<td></td>
