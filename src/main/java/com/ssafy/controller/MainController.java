@@ -59,10 +59,6 @@ public class MainController {
 			Member m = memberservice.search(id);
 			session.setAttribute("member", m);
 			
-			List<Food> searchTop4 =foodservice.searchcountTop4();
-			session.setAttribute("searchTop4", searchTop4);
-			List<Food> intakeTop4 = foodservice.intakecountTop4();
-			session.setAttribute("intakeTop4", searchTop4);
 		}
 		return "redirect:index.jsp";
 
@@ -275,7 +271,7 @@ public class MainController {
 		model.addAttribute("list", list2);
 		return "ateFood";
 	}
-
+	
 	@PostMapping("myFoodUpdate.do")
 	public String myFoodUpdate(int code, int quantity, HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("member");
@@ -309,7 +305,13 @@ public class MainController {
 		}
 		return "redirect:myFoodList.do";
 	}
-
+	
+	@GetMapping("BestIntake.do")
+	public String BestIntake(HttpSession session) {
+		List<Food> intakeTop4 = foodservice.intakecountTop4();
+		session.setAttribute("intakeTop4", intakeTop4);
+		return "bestintake";
+	}
 	private class foodSortComparator implements Comparator<Food> {
 		String sortKey;
 
