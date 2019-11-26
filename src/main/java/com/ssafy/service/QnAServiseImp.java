@@ -155,4 +155,22 @@ public class QnAServiseImp implements QnAService {
 		}
 	}
 
+	@Override
+	public void hitup(int qno) {
+		try {
+			System.out.println("Qboard hitup...." + qno);
+			Qboard find = dao.search(qno);
+			if (find == null) {
+				throw new InfoNotFoundException();
+			} else {
+				dao.hitup(qno);
+				System.out.println(" Question hitup");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new SafefoodException("조회수 추가 중 오류 발생");
+		}
+	}
+
 }

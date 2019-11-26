@@ -49,6 +49,10 @@
 		select * from aboard where qno=#{qno}
 	</select>
 
+	<update id="hitup" parameterType="int">
+		update qboard set hit = hit+1
+		where qno = #{qno}
+	</update>
 </mapper>
 
 

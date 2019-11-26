@@ -22,6 +22,6 @@ public interface IQnAMgr {
 	public void removeAnswer(int ano) throws Exception;
 	public Aboard searchAnswer(int ano) throws Exception;
 	public List<Aboard> searchAnswerAll(int qno) throws Exception;
-	
+	public void hitup(int qno)throws Exception;
 
 }

@@ -118,6 +118,11 @@ public class QnaController {
 		return handleSuccess(qnaservice.searchAnswer(ano));
 	}
 	
-	
-	
+	@PutMapping("/qna/hitup/{qno}")
+	@ApiOperation("QnA 조회수 +1")
+	public ResponseEntity<Map<String, Object>> hitup(@PathVariable int qno) {
+		System.out.println("Asdasdasdasdasda" + qno);
+		qnaservice.hitup(qno);
+		return handleSuccess("수정 완료");
+	}
 }

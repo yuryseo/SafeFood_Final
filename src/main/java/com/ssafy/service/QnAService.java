@@ -22,7 +22,7 @@ public interface QnAService {
 	public void removeAnswer(int ano) throws Exception;
 	public Aboard searchAnswer(int ano) ;
 	public List<Aboard> searchAnswerAll(int qno) ;
-	
+	public void hitup(int qno);
 	
 
 }
