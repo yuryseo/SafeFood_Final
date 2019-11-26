@@ -39,6 +39,19 @@ table {
 	width: 5%;
 }
 </style>
+<script type="text/javascript">
+function goAteFood(flag) {
+	console.log("여기옴");
+	if(flag){
+		console.log("1");
+		alert("로그인이 필요한 기능입니다.");
+		return false;
+	}else{
+		console.log("2");
+		return true;
+	}
+}
+</script>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -76,7 +89,8 @@ table {
 								name="code" value='${food.code}' /> <input type="number"
 								name='quantity' required="required" min="1" id='person' />
 								<p />
-								<br /> <input type='submit' class='btn btn-info' value='추가' />
+								<br />
+								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id});" value="추가"/>
 								<button type='button' class='btn btn-info'>찜</button>
 							</th>
 							<td></td>
