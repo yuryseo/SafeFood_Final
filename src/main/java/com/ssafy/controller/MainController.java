@@ -45,12 +45,24 @@ public class MainController {
 		session.invalidate();
 		return "redirect:index.jsp";
 	}
-
+	@GetMapping("index.do")
+	String index(HttpSession session) {
+		
+		  List<Food> searchTop4 =foodservice.searchcountTop4();
+		  session.setAttribute("searchTop4", searchTop4);
+		 
+		return "redirect:index.jsp";
+	}
 	@PostMapping("login.do")
 	protected String login(HttpSession session, String id, String password) throws Exception {
 		if (memberservice.login(id, password)) {
 			Member m = memberservice.search(id);
 			session.setAttribute("member", m);
+			
+			List<Food> searchTop4 =foodservice.searchcountTop4();
+			session.setAttribute("searchTop4", searchTop4);
+			List<Food> intakeTop4 = foodservice.intakecountTop4();
+			session.setAttribute("intakeTop4", searchTop4);
 		}
 		return "redirect:index.jsp";
 
@@ -172,18 +184,19 @@ public class MainController {
 
 	@GetMapping("foodList.do")
 	public String foodList(String searchOption, String searchItem, String sortOption, Model model) {
-
+		System.out.println("foodList............"+searchOption+searchItem+sortOption);
 		try {
 			List<Food> list;
 			String key = searchOption;
 			String word = searchItem;
 			String sortKey = sortOption;
 			if (key == null && word == null && sortKey == null) {
-				key = "searchName";
+				key = "all";
 				word = "";
 				sortKey = "sortName";
 			}
-//			list = foodservice.All();
+		//	list = foodservice.All();
+			System.out.println(key+"          "+word);
 			list = foodservice.searchAll(key, word);
 			Collections.sort(list, new foodSortComparator(sortKey));
 			model.addAttribute("list", list);
@@ -282,7 +295,7 @@ public class MainController {
 	}
 
 	@PostMapping("myFoodInsert.do")
-	public String myFoodInsert(int code, int quantity, HttpSession session) {
+	public String myFoodInsert(int code, int quantity, HttpSession session){
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
 		System.out.println("----code : " + code + ", quantity : " + quantity + ", id : " + id);
@@ -292,6 +305,7 @@ public class MainController {
 			myfoodservice.insert(new MyFood(id, code, quantity));
 		} else {
 			myfoodservice.update(new MyFood(id, code, quantity + find.getQuantity()));
+			foodservice.intakecount(code);
 		}
 		return "redirect:myFoodList.do";
 	}

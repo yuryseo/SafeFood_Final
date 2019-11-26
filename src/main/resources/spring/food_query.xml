@@ -4,61 +4,81 @@
 
 <mapper namespace="com.ssafy.model.dao.IFoodMgr">
 	<insert id="insert" parameterType="food">
-		insert into food(code, name, maker, material, servingWt, calory, carbo, protein, fat, sugar, natrium, chole, fattyacid, transfat, year, img)
+		insert into food(code, name,
+		maker, material, servingWt, calory, carbo, protein, fat, sugar,
+		natrium, chole, fattyacid, transfat, year, img)
 		values(#{code:INTEGER}
-   		        ,#{name:VARCHAR}
-   		        ,#{maker:VARCHAR}
-   		        ,#{material:VARCHAR}
-   		        ,#{servingWt:INTEGER}
-   		        ,#{calory:DOUBLE}
-   		        ,#{carbo:DOUBLE}
-   		        ,#{protein:DOUBLE}
-   		        ,#{fat:DOUBLE}
-   		        ,#{sugar:DOUBLE}
-   		        ,#{natrium:DOUBLE}
-   		        ,#{chole:DOUBLE}
-   		        ,#{fattyacid:DOUBLE}
-   		        ,#{transfat:DOUBLE}
-   		        ,#{year:INTEGER}
-   		        ,#{img:VARCHAR}
-   		        )
+		,#{name:VARCHAR}
+		,#{maker:VARCHAR}
+		,#{material:VARCHAR}
+		,#{servingWt:INTEGER}
+		,#{calory:DOUBLE}
+		,#{carbo:DOUBLE}
+		,#{protein:DOUBLE}
+		,#{fat:DOUBLE}
+		,#{sugar:DOUBLE}
+		,#{natrium:DOUBLE}
+		,#{chole:DOUBLE}
+		,#{fattyacid:DOUBLE}
+		,#{transfat:DOUBLE}
+		,#{year:INTEGER}
+		,#{img:VARCHAR}
+		)
 	</insert>
 
 	<select id="search" parameterType="int" resultType="food">
 		select *
 		from food
-		where code=#{code}
+		where
+		code=#{code}
 	</select>
-	
-	<select id="All" 	resultType="food">
+
+	<select id="All" resultType="food">
 		select *
 		from food
-   </select>
-   
-	<select id="searchAll" parameterType="pagebean"	resultType="food">
+	</select>
+
+	<select id="searchAll" parameterType="pagebean" resultType="food">
 		select *
 		from food
-   		<where>
-   			<if test='key != null and key!="all"'>
-   				<if test="word != null">
+		<where>
+			<if test='key != null and key!="all"'>
+				<if test="value != null">
 					<choose>
 						<when test="key == 'searchName'">
-							name like concat('%',#{word},'%')
+							name like concat('%',#{value},'%')
 						</when>
 						<when test="key == 'searchMaker'">
-							maker like concat('%',#{word},'%')   
+							maker like concat('%',#{value},'%')
 						</when>
 						<when test="key == 'searchMaterial'">
-							material like concat('%',#{word},'%')
+							material like concat('%',#{value},'%')
 						</when>
 						<when test="key == 'searcEtc'">
-							name like concat('%',#{word},'%')
+							name like concat('%',#{value},'%')
 						</when>
 					</choose>
 				</if>
-   			</if>
-   		</where>
-   </select>
+			</if>
+		</where>
+	</select>
+	<update id="searchcount" parameterType="int">
+		update food set searchcount=#{searchcount:INTEGER}+1
+		where code = #{code:INTEGER}
+	</update>
+	<update id="intakecount" parameterType="int">
+		update food set intakecount=#{intakecount:INTEGER}+1
+		where code = #{code:INTEGER}
+	</update>
+
+	<select id="searchcountTop4" resultType="food">
+		select code, name, maker, img
+		from food order by searchcount desc limit 0,4;
+	</select>
+	<select id="intakecountTop4" resultType="food">
+		select code, name, maker, img
+		from food order by intakecount desc limit 0,4;
+	</select>
 
 </mapper>
 

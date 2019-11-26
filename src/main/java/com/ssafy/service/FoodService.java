@@ -10,4 +10,9 @@ public interface FoodService {
 	public Food search(int code);
 
 	public void add(Food food);
+
+	public void searchcount(int code) ;
+	public void intakecount(int code) ;
+	public List<Food> intakecountTop4();
+	public List<Food> searchcountTop4();
 }

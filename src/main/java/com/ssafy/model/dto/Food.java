@@ -18,6 +18,15 @@ public class Food {
 	int year;
 	String img;
 	public Food() {}
+	
+	public Food(int code, String name, String maker, String img) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.maker = maker;
+		this.img = img;
+	}
+
 	public Food(int code, String name, String maker, String material, int servingWt, double calory,
 			double carbo, double protein, double fat, double sugar, double natrium, double chole, double fattyacid,
 			double transfat, int year, String img) {

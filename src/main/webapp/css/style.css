@@ -2591,6 +2591,13 @@ ul {
 	padding: 40px;
 }
 
+.booking_part .searchtop4 {
+	border-left: solid 1px #800000;
+	border-right: solid 1px #800000;
+	background-color: white;
+	padding: 20px;
+}
+
 /* line 29, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */
 .booking_part .form-row {
 	display: flex;
@@ -2630,7 +2637,7 @@ ul {
 	align-items: center;
 }
 
-.nc_input{
+.nc_input {
 	border: 1px solid #2493e0;
 	width: 100%;
 	border-radius: 0;
@@ -3699,7 +3706,7 @@ ul {
 	background-image: url("../img/bg2.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: ;
+	background-size:;
 	height: 600px;
 }
 

@@ -6,10 +6,15 @@ import com.ssafy.model.dto.Food;
 
 @Mapper
 public interface IFoodMgr {
-	public void add(Food food) throws Exception;
-
-	public List<Food> searchAll(String key, String word) throws Exception;
+	public List<Food> searchAll(String key, String value);
 	public List<Food> All() throws Exception;
+	public Food search(int code);
 
-	public Food search(int code) throws Exception;
+	public void add(Food food);
+
+	public void searchcount(int code) ;
+	public void intakecount(int code) ;
+	
+	public List<Food> intakecountTop4();
+	public List<Food> searchcountTop4();
 }

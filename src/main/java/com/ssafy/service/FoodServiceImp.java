@@ -28,6 +28,7 @@ public class FoodServiceImp implements FoodService {
 	@Override
 	public List<Food> searchAll(String key, String word) {
 		try {
+			System.out.println("foodserviceImpl"+key+"    "+word);
 			List<Food> find = dao.searchAll(key, word);
 			return find;
 		} catch (InfoNotFoundException e) {
@@ -62,6 +63,63 @@ public class FoodServiceImp implements FoodService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void searchcount(int code)  {
+		try {
+			dao.searchcount(code);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void intakecount(int code) {
+		try {
+			dao.intakecount(code);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public List<Food> intakecountTop4() {
+		try {
+			List<Food> find = dao.intakecountTop4();
+			System.out.println("intakecountTop4");
+			if (find == null) {
+				throw new InfoNotFoundException();
+			} else {
+				for (int i = 0; i < find.size(); i++) {
+					System.out.println("intakeTop4...."+find.get(i).getName());
+				}
+				return find;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Food> searchcountTop4() {
+		try {
+			List<Food> find = dao.searchcountTop4();
+			
+			if (find == null) {
+				throw new InfoNotFoundException();
+			} else {
+				for (int i = 0; i < find.size(); i++) {
+					System.out.println("searchTop4...."+find.get(i).getName());
+				}
+				return find;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

@@ -115,7 +115,7 @@
 					<div class="col-lg-12">
 						<nav
 							class="navbar navbar-expand-lg navbar-light justify-content-between">
-							<a class="navbar-brand" href="index.jsp"> <img id='logoIMG'
+							<a class="navbar-brand" href="index.do"> <img id='logoIMG'
 								src='img/header-logo.jpg' alt="logo">
 							</a>
 							<button class="navbar-toggler" type="button"
