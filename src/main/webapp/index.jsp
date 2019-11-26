@@ -1,24 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>	
-
+<html>
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-<title>SAFE FOOD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="icon" href="img/favicon.png">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -31,12 +23,20 @@
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index.css">
+<title>SAFE FOOD</title>
 
+<script type="text/javascript">
+function isLogined(flag){
+	if(flag){
+		alert("로그인이 필요한 기능입니다.");
+		event.stopPropagation();
+	}
+}
+
+</script>
 </head>
-
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-
 	<jsp:include page="banner.jsp"></jsp:include>
 	<!-- banner part start-->
 
@@ -47,15 +47,14 @@
 				<div class="col-lg-12">
 					<div class="booking_menu">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
-							<li class="nav-item"><a class="nav-link active"
-								id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
-								aria-controls="hotel" aria-selected="true">hotel</a></li>
-							<li class="nav-item"><a class="nav-link" id="tricket-tab"
-								data-toggle="tab" href="#tricket" role="tab"
-								aria-controls="tricket" aria-selected="false">tricket</a></li>
-							<li class="nav-item"><a class="nav-link" id="place-tab"
-								data-toggle="tab" href="#place" role="tab" aria-controls="place"
-								aria-selected="false">place</a></li>
+							<li class="nav-item">
+								<a class="nav-link active"id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
+								aria-controls="hotel" aria-selected="true">식품 검색</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tricket-tab" data-toggle="tab" href="#tricket" role="tab"
+								aria-controls="tricket" aria-selected="false" onclick="isLogined(${empty member.id})">내 섭취정보 검색</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -64,33 +63,30 @@
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="hotel" role="tabpanel"
 								aria-labelledby="hotel-tab">
-								<div class="booking_form">
-									<form action="#">
+								<div class="booking_form">									
+									<form method="get" action="foodList.do" id="frm">
 										<div class="form-row">
 											<div class="form_colum">
-												<select class="nc_select">
-													<option selected>Choosace place</option>
-													<option value="1">One</option>
-													<option value="2">Two</option>
-													<option value="3">Three</option>
+												<select class="nc_select" id="sortOption" name="sortOption">
+													<option selected>정렬</option>
+													<option id="sortName" value="sortName">상품명순</option>
+													<option id="sortMaker" value="sortMaker">브랜드순</option>
 												</select>
 											</div>
 											<div class="form_colum">
-												<input id="datepicker_1" placeholder="Check in date">
-											</div>
-											<div class="form_colum">
-												<input id="datepicker_2" placeholder="Check in date">
-											</div>
-											<div class="form_colum">
-												<select class="nc_select">
-													<option selected>Persone</option>
-													<option value="1">One</option>
-													<option value="2">Two</option>
-													<option value="3">Three</option>
+												<select class="nc_select" id="searchOption" name="searchOption">
+													<option selected>검색 조건</option>
+													<option id="searchName" value="searchName">상품명</option>
+													<option id="searchMaker" value="searchMaker">제조사</option>
+													<option id="searchMaterial" value="searchMaterial">첨가재료</option>
+													<option id="searcEtc" value="searcEtc">기타</option>
 												</select>
+											</div>
+											<div class="form_colum">
+												<input type="text" class="nc_input" id="searchItem" name="searchItem" placeholder="검색 단어">
 											</div>
 											<div class="form_btn">
-												<a href="#" class="btn_1">search</a>
+												<button type="submit" class="btn_1" id="searchBtn" name="searchBtn">검색</button>
 											</div>
 										</div>
 									</form>
@@ -99,66 +95,29 @@
 							<div class="tab-pane fade" id="tricket" role="tabpanel"
 								aria-labelledby="tricket-tab">
 								<div class="booking_form">
-									<form action="#">
+									<form method="get" action="myFoodList.do" id="frm">
 										<div class="form-row">
 											<div class="form_colum">
-												<select class="nc_select">
-													<option selected>Choosace place</option>
-													<option value="1">One</option>
-													<option value="2">Two</option>
-													<option value="3">Three</option>
+												<select class="nc_select" id="sortOption" name="sortOption">
+													<option selected>정렬</option>
+													<option id="sortName" value="sortName">상품명순</option>
+													<option id="sortMaker" value="sortMaker">브랜드순</option>
 												</select>
 											</div>
 											<div class="form_colum">
-												<input id="datepicker_3" placeholder="Check in date">
-											</div>
-											<div class="form_colum">
-												<input id="datepicker_4" placeholder="Check in date">
-											</div>
-											<div class="form_colum">
-												<select class="nc_select">
-													<option selected>Persone</option>
-													<option value="1">One</option>
-													<option value="2">Two</option>
-													<option value="3">Three</option>
+												<select class="nc_select" id="searchOption" name="searchOption">
+													<option selected>검색 조건</option>
+													<option id="searchName" value="searchName">상품명</option>
+													<option id="searchMaker" value="searchMaker">제조사</option>
+													<option id="searchMaterial" value="searchMaterial">첨가재료</option>
+													<option id="searcEtc" value="searcEtc">기타</option>
 												</select>
+											</div>
+											<div class="form_colum">
+												<input type="text" class="nc_input" id="searchItem" name="searchItem" placeholder="검색 단어">
 											</div>
 											<div class="form_btn">
-												<a href="#" class="btn_1">search</a>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-							<div class="tab-pane fade" id="place" role="tabpanel"
-								aria-labelledby="place-tab">
-								<div class="booking_form">
-									<form action="#">
-										<div class="form-row">
-											<div class="form_colum">
-												<select class="nc_select">
-													<option selected>Choosace place</option>
-													<option value="1">One</option>
-													<option value="2">Two</option>
-													<option value="3">Three</option>
-												</select>
-											</div>
-											<div class="form_colum">
-												<input id="datepicker_5" placeholder="Check in date">
-											</div>
-											<div class="form_colum">
-												<input id="datepicker_6" placeholder="Check in date">
-											</div>
-											<div class="form_colum">
-												<select class="nc_select">
-													<option selected>Persone</option>
-													<option value="1">One</option>
-													<option value="2">Two</option>
-													<option value="3">Three</option>
-												</select>
-											</div>
-											<div class="form_btn">
-												<a href="#" class="btn_1">search</a>
+												<button type="submit" class="btn_1" id="searchBtn" name="searchBtn">검색</button>
 											</div>
 										</div>
 									</form>
