@@ -131,12 +131,11 @@
 								<ul class="navbar-nav">
 									<li class="nav-item"><a class="nav-link" href=#>공지사항</a></li>
 									<li class="nav-item"><a class="nav-link" href="foodList.do">상품정보</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">베스트 섭취정보</a></li>
 									<c:if test="${not empty member.id}">
 										<li class="nav-item"><a class="nav-link" href="#">어떤메뉴</a></li>
 										<li class="nav-item"><a class="nav-link"href="myFoodList.do">내 섭취정보</a></li>
-										<li class="nav-item"><a class="nav-link" href="guideProgram.do">진단 프로그램</a></li>
 									</c:if>
+									<li class="nav-item"><a class="nav-link" href="guideProgram.do">진단 프로그램</a></li>
 									<li class="nav-item"><a class="nav-link" href="qna.do">QnA</a></li>
 								</ul>
 							</div>
