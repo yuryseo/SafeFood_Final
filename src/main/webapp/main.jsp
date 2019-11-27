@@ -121,7 +121,6 @@ function isLogined(flag){
 				
 			</div>
 		</div>
-		<
 	</section>
 </body>
 </html>
