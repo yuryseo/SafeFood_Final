@@ -59,12 +59,7 @@
 			<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 			<script src="js/jquery-ui-datepicker.min.js"></script>
 			<script>
-				var date
-				window.onload = function () {
-					date = $('#calendar').val(); 
-		        	console.log(date);
-				};
-				
+			
 				$('#calendar').datepicker({
 					inline : true,
 					showOtherMonths : true,
@@ -72,15 +67,18 @@
 					showAnim: "slide",
 					currentText: "오늘",
 					gotoCurrent: true,
+					defaultDate: searchParam('date'),
 					dayNamesMin : [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
 				});
 				
 				$('#calendar').change(function (){
-		            date = $('#calendar').val();
-		            console.log(date);
+		            var date = $('#calendar').val();
 					location.href = "myFoodList.do?date=" + date;
 		        });
 				
+				function searchParam(key) {
+			  		return new URLSearchParams(location.search).get(key);
+				};
 			</script>
 		<br>
 		<table id='listTable' align='center' width='80%'>
