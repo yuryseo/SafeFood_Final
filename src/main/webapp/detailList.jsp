@@ -66,7 +66,7 @@ function goAteFood(flag, flag2) {
 				<form method='post' action="myFoodInsert.do">
 					<table id="table" class="table" style="margin: auto;">
 						<tr>
-							<td rowspan='6' width='30%' align="center">
+							<td rowspan='7' width='30%' align="center">
 							<img id="Picture" src="${food.img }" width='400px' height='400px'></td>
 						</tr>
 						<tr>
@@ -86,6 +86,10 @@ function goAteFood(flag, flag2) {
 							<td><font color="red">${allergyIngredients}</font></td>
 						</tr>
 						<tr>
+							<th>원산지</th>
+							<td id="Origin">${madein}</td>
+						</tr>
+						<tr>
 							<td colspan="2" align='left'>
 								<b>Quantity</b>&nbsp;
 								<input type="hidden" name="code" value='${food.code}' />
@@ -94,7 +98,7 @@ function goAteFood(flag, flag2) {
 								<input type="hidden" name="code" value='${food.code}' />
 								<input type="date" name='date' required="required"/>
 								<p />
-								<br />
+								
 								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" value="추가"/>
 								<%-- <button type='button' class='btn btn-info'  herf="addwishlist.do" onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});">찜</button>
 							 --%>
