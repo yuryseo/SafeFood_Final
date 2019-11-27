@@ -18,7 +18,7 @@
 	</select>
 
 	<delete id = "delete" parameterType="wishlist">
-		delete from wishlist where id=#{id} and id = #{id}
+		delete from wishlist where id=#{id} and code =#{code}
 	</delete>
 </mapper>
 

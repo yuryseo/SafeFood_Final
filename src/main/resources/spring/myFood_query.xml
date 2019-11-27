@@ -4,13 +4,14 @@
 
 <mapper namespace="com.ssafy.model.dao.IMyFoodMgr">
 	<insert id="insert" parameterType="myfood">
-		insert into myfood(id, code, quantity)
+		insert into myfood(id, code, quantity,date)
 		values(#{id:VARCHAR}
    		        ,#{code:INTEGER}
    		        ,#{quantity:INTEGER}
+   		        ,#{date:VARCHAR}
    		       )
 	</insert>
-	
+
 	<select id="search" parameterType="searchmyfoodinfo" resultType="myfood">
 		select id, code, quantity, name, maker, material, img
 		from myfood

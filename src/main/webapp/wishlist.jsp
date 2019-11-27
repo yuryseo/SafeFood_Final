@@ -39,33 +39,32 @@ function goDetail(foodcode){
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
 					<div class="section_tittle text-center">
-						<h2>찜한 식품 목록</h2>
-						<p>Waters make fish every without firmament saw had. Morning
-							air subdue. Our. Air very one. Whales grass is fish whales
-							winged.</p>
+						<h2></i>찜한 식품 목록</h2>
+						
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<c:forEach items="${list}" var="food">
-				<div class="col-lg-4 col-sm-6">
+				<div class="col-lg-3 col-sm-3">
+				<input type="hidden" name="code" value="${food.code}" />
+				<input type="hidden" name="quantity" value="1" />
 					<div class="single_ihotel_list">
 						<img src="${food.img }" alt="">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
 								<ul>
-									<li><a href="#"><i class="ti-heart">섭취</i></a></li>
-									<li><a href="#"><i class="ti-list">삭제</i></a></li>
-									<li><a href="#"><i class="ti-thumb-up">또?</i></a></li>
+									<li><a href="myFoodInsert.do"><i >섭취</i></a></li>
+									<li><a href="deletewishlist.do"><i>삭제</i></a></li>
 								</ul>
 							</div>
-							<!-- <div class="share_icon">
+							<div class="share_icon">
 								<i class="ti-share"></i>
-							</div> -->
+							</div>
 						</div>
 						<div class="hotel_text_iner">
 							<h3>
-								<a href="#"> ${food.name}</a>
+								<a href="foodDetail.do?foodcode=${food.code}"><i class="ti-heart"> ${food.name}</i></a>
 							</h3>
 						</div>
 					</div>
