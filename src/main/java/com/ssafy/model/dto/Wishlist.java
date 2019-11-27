@@ -5,15 +5,15 @@ public class Wishlist {
 	 * wno int primary key auto_increment, userid varchar(15), code int
 	 */
 	int wno;
-	String userid;
+	String id;
 	int code;
-	public Wishlist(int wno, String userid, int code) {
+	public Wishlist(int wno, String id, int code) {
 		this.wno = wno;
-		this.userid = userid;
+		this.id = id;
 		this.code = code;
 	}
-	public Wishlist(String userid, int code) {
-		this.userid = userid;
+	public Wishlist(String id, int code) {
+		this.id = id;
 		this.code = code;
 	}
 	public int getWno() {
@@ -22,11 +22,11 @@ public class Wishlist {
 	public void setWno(int wno) {
 		this.wno = wno;
 	}
-	public String getUserid() {
-		return userid;
+	public String getId() {
+		return id;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public int getCode() {
 		return code;
@@ -36,8 +36,8 @@ public class Wishlist {
 	}
 	@Override
 	public String toString() {
-		return "Wishlist [wno=" + wno + ", userid=" + userid + ", code=" + code + "]";
+		return "Wishlist [wno=" + wno + ", id=" + id + ", code=" + code + "]";
 	}
-	
+
 	
 }

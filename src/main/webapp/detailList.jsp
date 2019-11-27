@@ -96,7 +96,8 @@ function goAteFood(flag, flag2) {
 								<p />
 								<br />
 								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" value="추가"/>
-								<button type='button' class='btn btn-info'>찜</button>
+								<%-- <button type='button' class='btn btn-info'  herf="addwishlist.do" onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});">찜</button>
+							 --%>
 							</td>
 						</tr>
 					</table>

@@ -30,7 +30,18 @@
 function goDetail(foodcode){
 	location.href="foodDetail.do?foodcode=" + foodcode;
 }
-
+function goAteFood(flag, flag2) {
+	if(flag){
+		alert("로그인이 필요한 기능입니다.");
+		return false;
+	}
+	if(!flag2){
+		if(confirm("알러지 성분이 있는 식품입니다! 섭취하시겠습니까?") == true)
+			return true;
+		return false;
+	}
+	return true;
+}
 </script>
 </head>
 <body>
@@ -42,6 +53,8 @@ function goDetail(foodcode){
 			<h2 align="center">상품 목록</h2>
 			<table id='listTable' align='center' width='80%'>
 				<c:forEach items="${list}" var="food">
+				<form method='post' action="addwishlist.do">
+				<input type="hidden" name="code" value="${food.code}" />
 					<tr id='listTableFistTr'>
 						<td rowspan='5' width='20%'>
 							<img src="${food.img}" id="${food.code}" name="${food.code}" width="260px" height="260px" class="imgContent" onclick="goDetail(this.name);")>
@@ -66,12 +79,13 @@ function goDetail(foodcode){
 					</tr>
 					<tr id='listTableLastTr'>
 						<td align='left'>
-							<button type='button' class='btn btn-info' name="${food.code}" onclick="goDetail(this.name);">
-							<i class='fa fa-plus'></i> 추가</button>
-							<button type='button' class='btn btn-info' onclick="wishlist.do=${food.code};">
+							<%-- <button type='button' class='btn btn-info' name="${food.code}" onclick="goDetail(this.name);">
+							<i class='fa fa-plus'></i> 추가</button> --%>
+							<button type='submit' class='btn btn-info'  onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});">
 							<i class='fa fa-star'></i> 찜</button>
 						</td>
 					</tr>
+					</form>
 				</c:forEach>
 			</table>
 		</article>

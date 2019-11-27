@@ -47,7 +47,7 @@ public class MainController {
 
 	@GetMapping("/")
 	String start(HttpSession session) {
-		//session.invalidate();
+		session.invalidate();
 		return "redirect:index.jsp";
 	}
 
@@ -76,7 +76,7 @@ public class MainController {
 
 	@PostMapping("logout.do")
 	public String logout(HttpSession session) {
-		session.invalidate();
+		
 		List<Food> searchTop4 = foodservice.searchcountTop4();
 		session.setAttribute("searchTop4", searchTop4);
 		List<Food> intakeTop4 = foodservice.intakecountTop4();
@@ -147,7 +147,6 @@ public class MainController {
 		System.out.println("id 찾기..............." + name + " " + phone);
 		Member m = memberservice.searchbyname(name);
 		if (m == null) {
-			session.invalidate();
 			System.out.println("멤버가 없지여");
 			return "redirect:findIdGo.do";
 		}
@@ -172,7 +171,6 @@ public class MainController {
 		System.out.println("비밀번호 찾기..............." + name + " " + phone);
 		Member m = memberservice.search(id);
 		if (m == null) {
-			session.invalidate();
 			System.out.println("멤버가 없지여");
 			throw new SafefoodException("회원정보를 정학히 입력해주세요");
 
@@ -266,19 +264,28 @@ public class MainController {
 
 	//찜 누르는 거 디비에 추가하게
 	
+	@RequestMapping(value="addwishlist.do",method= {RequestMethod.POST,RequestMethod.GET})
+	public String myFoodUpdate(int code,HttpSession session) {
+		Member member = (Member) session.getAttribute("member");
+		String id = member.getId();
+		
+		Wishlist wishlist = new Wishlist(id, code);
+		System.out.println("addwishlist......."+wishlist);
+		wishlistservice.insert(wishlist);
+		return "redirect:wishlist.do";
+	}
 	
-	
-//	@GetMapping("deletewishlist.do")
-	@RequestMapping(value="deletewishlist.do",method= {RequestMethod.POST,RequestMethod.GET})
-	public void deletewishlist(int code,HttpSession session, Model model) {
+	@GetMapping("deletewishlist.do")
+	public String deletewishlist(int foodcode,HttpSession session, Model model) {
 		
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
-		System.out.println("deletewishlist....."+code);
-		Wishlist wishlist = new Wishlist(id,code);
+		System.out.println("deletewishlist....."+foodcode);
+		Wishlist wishlist = new Wishlist(id,foodcode);
 		wishlistservice.delete(wishlist);
 		
 		System.out.println("deletewishlist........");
+		return "myFoodList";
 	}
 	
 	
@@ -345,7 +352,6 @@ public class MainController {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
 		myfoodservice.remove(id, code);
-		// session.invalidate();
 		return "redirect:myFoodList.do";
 	}
 
