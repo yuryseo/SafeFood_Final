@@ -10,7 +10,7 @@ public interface IMyFoodMgr {
 
 	public List<MyFood> searchAll(String key, String word) throws Exception;
 	
-	public List<MyFood> searchDate(String id, int code, String date) throws Exception;
+	public List<MyFood> searchDate(String key, String word) throws Exception;
 
 	public void insert(MyFood myfood) throws Exception;
 

@@ -1,8 +1,10 @@
 package com.ssafy.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -269,6 +271,7 @@ public class MainController {
 	public String myFoodListGet(String searchOption, String searchItem, String sortOption, HttpSession session,
 			Model model) {
 		List<MyFood> list;
+		List<MyFood> searchList = new ArrayList<MyFood>();
 		List<MyFood> list2 = new ArrayList<MyFood>();
 		String key = searchOption;
 		String word = searchItem;
@@ -286,6 +289,17 @@ public class MainController {
 				list2.add(myFood);
 		}
 		model.addAttribute("list", list2); // 모든 섭취 식품들
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date time = new Date();
+		String date = dateFormat.format(time);
+		list = myfoodservice.searchDate(key, word);
+		for (MyFood myFood : list) {
+			if (myFood.getId().equals(id) && myFood.getDate().equals(date))
+				searchList.add(myFood);
+		}
+		model.addAttribute("searchList", searchList); // 날짜별 검색된 섭취 식품들
+
 		return "ateFood";
 	}
 
@@ -338,6 +352,8 @@ public class MainController {
 			}
 			model.addAttribute("list",  find);
 		}
+		
+		
 		return "wishlist";
 	}
 
@@ -388,6 +404,11 @@ public class MainController {
 		String id = member.getId();
 		System.out.println("----code : " + code + ", quantity : " + quantity + ", id : " + id + ", date : " + date);
 		MyFood find = myfoodservice.search(id, code, date);
+		if(date == null) {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date time = new Date();
+			date = dateFormat.format(time);			
+		}
 		System.out.println("----1 : " + find);
 		if (find == null) {
 			myfoodservice.insert(new MyFood(id, code, quantity, date));

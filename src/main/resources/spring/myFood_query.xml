@@ -20,12 +20,11 @@
 		where id=#{id} and code=#{code} and date=#{date}
 	</select>
 	
-	<select id="searchDate" parameterType="searchmyfoodinfo" resultType="myfood">
+	<select id="searchDate" parameterType="pagebean" resultType="myfood">
 		select id, code, quantity, name, maker, material, img, date
 		from myfood
 		left join food
 		using (code)
-		where id=#{id} and code=#{code} and date=#{date}
 		<!-- 동적 쿼리시 조건에 의해 where 나 and를 붙여주는 태그  -->
    		<where>
    			<if test='key != null and key!="all"'>
@@ -50,7 +49,7 @@
 	</select>
 	
 
-	<select id="searchAll" parameterType="pagebean"	resultType="myfood">
+	<select id="searchAll" resultType="myfood">
 		select id, code, quantity, name, maker, material, img, date
 		from myfood
 		left join food

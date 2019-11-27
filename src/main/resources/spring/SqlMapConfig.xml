@@ -15,6 +15,7 @@
 		<typeAlias type="com.ssafy.model.dto.PageBean"   	alias="pagebean"/>
 		<typeAlias type="com.ssafy.model.dto.Wishlist"   	alias="wishlist"/>
 		<typeAlias type="com.ssafy.model.dto.SearchMyFoodInfo"   	alias="searchmyfoodinfo"/>
+		<typeAlias type="com.ssafy.model.dto.SearchMyFoodInfo2"   	alias="searchmyfoodinfo2"/>
 	</typeAliases>
 	<mappers>
 	 <mapper resource="spring/food_query.xml" />

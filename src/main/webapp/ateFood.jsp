@@ -82,27 +82,27 @@
 			</script>
 		<br>
 		<table id='listTable' align='center' width='80%'>
-			<c:forEach items="${list}" var="food">
+			<c:forEach items="${searchList}" var="searchMyFood">
 				<form method="post" id="frm2">
-					<input type="hidden" id="code" name="code" value="${food.code}" />
+					<input type="hidden" id="code" name="code" value="${searchMyFood.code}" />
 					<tr id='listTableFistTr'>
 						<td rowspan='4' width='20%'>
-							<img src="${food.img}"id="${food.code}" name="${food.code}" width="200px" height="200px" class="imgContent" onclick="goDetail(this.name);">
+							<img src="${searchMyFood.img}"id="${searchMyFood.code}" name="${searchMyFood.code}" width="200px" height="200px" class="imgContent" onclick="goDetail(this.name);">
 						</td>
 						<td id="listTableFistTd" align="left">
-							<b><font size='5px'>${food.name}</font></b>
+							<b><font size='5px'>${searchMyFood.name}</font></b>
 						</td>
 					</tr>
 					<tr>
 						<td align='left'>
 							<font size='4px'>섭취 수량 : </font>
-							<input type="text" id="quantity" name="quantity" value="${food.quantity}" />
+							<input type="text" id="quantity" name="quantity" value="${searchMyFood.quantity}" />
 						</td>
 					</tr>
 					<tr>
 						<td align='left'>
 							<font size='4px'>섭취 날짜 : </font>
-							<input type="text" id="date" name="date" value="${food.date}" />
+							<input type="text" id="date" name="date" value="${searchMyFood.date}" />
 						</td>
 					</tr>
 					<tr id='listTableLastTr'>
