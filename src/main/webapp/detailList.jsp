@@ -132,11 +132,10 @@ function goAteFood(flag, flag2) {
 								</tr>
 								<tr>
 									<th>단백질</th>
-									<td id="protein">${food.protein }</td>
+									<td >${food.protein }</td>
 								</tr>
 								<tr>
 									<th>지방</th>
-									<td id="fat">${food.fat }</td>
 								</tr>
 								<tr>
 									<th>당류</th>
