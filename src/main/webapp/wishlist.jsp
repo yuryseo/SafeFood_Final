@@ -55,8 +55,8 @@ function goDetail(foodcode){
 						<div class="hover_text">
 							<div class="hotel_social_icon">
 								<ul>
-									<li><input class="intake" type="submit" value="섭취"/></li>
-									<li><a href="deletewishlist.do?foodcode=${food.code}"><i>삭제</i></a></li>
+									<li><input class="intake" type="submit" value="섭취" formaction="myFoodInsert.do"/></li>
+									<li><input class="intake" type="submit" value="삭제" formaction="deletewishlist.do" /></li>
 								</ul>
 							</div>
 							<div class="share_icon">

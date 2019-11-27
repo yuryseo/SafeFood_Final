@@ -302,17 +302,17 @@ public class MainController {
 		return "redirect:wishlist.do";
 	}
 	
-	@GetMapping("deletewishlist.do")
-	public String deletewishlist(int foodcode,HttpSession session, Model model) {
+	@RequestMapping(value="deletewishlist.do",method= {RequestMethod.POST,RequestMethod.GET})
+	public String deletewishlist(int code,HttpSession session, Model model) {
 		
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
-		System.out.println("deletewishlist....."+foodcode);
-		Wishlist wishlist = new Wishlist(id,foodcode);
+		System.out.println("deletewishlist....."+code);
+		Wishlist wishlist = new Wishlist(id,code);
 		wishlistservice.delete(wishlist);
 		
 		System.out.println("deletewishlist........");
-		return "myFoodList";
+		return "redirect:/wishlist.do";
 	}
 	
 	
