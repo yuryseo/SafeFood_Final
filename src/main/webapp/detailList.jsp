@@ -32,11 +32,11 @@
 table {
 	margin: auto;
 	align: center;
-	width: 80%;
+	width: 70%;
 }
 
 #table th {
-	width: 5%;
+	width: 10%;
 }
 </style>
 <script type="text/javascript">
@@ -62,7 +62,7 @@ function goAteFood(flag, flag2) {
 				<h1>제품 정보</h1>
 			</div>
 			<br />
-			<div class="table-responsive">
+			<div class="table-responsive" style="padding :50px;padding-top: 100px;padding-bottom: 100px; ">
 				<form method='post' action="myFoodInsert.do">
 					<table id="table" class="table" style="margin: auto;">
 						<tr>
@@ -110,8 +110,10 @@ function goAteFood(flag, flag2) {
 			<br />
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-5">
 						<canvas id="myChart"></canvas>
+					</div>
+					<div class="col-md-1">
 					</div>
 					<div class="col-md-6">
 						<div class="table-responsive">
@@ -122,11 +124,11 @@ function goAteFood(flag, flag2) {
 								</tr>
 								<tr>
 									<th>칼로리</th>
-									<td id="calory">${food.calory}</td>
+									<td >${food.calory}</td>
 								</tr>
 								<tr>
 									<th>탄수화물</th>
-									<td id="carbo">${food.carbo }</td>
+									<td >${food.carbo }</td>
 								</tr>
 								<tr>
 									<th>단백질</th>
@@ -169,8 +171,8 @@ function goAteFood(flag, flag2) {
 
 <script type="text/javascript">
 	$(function() {
-		var calory = $("#calory").text();
-		var carbo = $("#carbo").text();
+		var calory = ${food.calory};
+		var carbo = ${food.carbo }
 		var protein = $("#protein").text();
 		var fat = $("#fat").text();
 		var sugar = $("#sugar").text();
