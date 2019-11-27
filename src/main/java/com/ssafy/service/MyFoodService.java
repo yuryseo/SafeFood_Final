@@ -12,5 +12,5 @@ public interface MyFoodService {
 
 	public void update(MyFood myfood);
 
-	public void delete(String id, int code);
+	public void remove(String id, int code);
 }

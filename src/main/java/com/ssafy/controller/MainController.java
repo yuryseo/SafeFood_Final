@@ -332,7 +332,7 @@ public class MainController {
 	}
 
 	@PostMapping("myFoodUpdate.do")
-	public String myFoodUpdate(int code, int quantity, HttpSession session, Model model) {
+	public String myFoodUpdate(int code, int quantity,HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
 		System.out.println("--code : " + code + " quantity : " + quantity);
@@ -350,14 +350,14 @@ public class MainController {
 	}
 
 	@RequestMapping(value="myFoodInsert.do",method= {RequestMethod.POST,RequestMethod.GET})
-	public String myFoodInsert(int code, int quantity, HttpSession session) {
+	public String myFoodInsert(int code, int quantity, String date, HttpSession session) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
 		System.out.println("----code : " + code + ", quantity : " + quantity + ", id : " + id);
 		MyFood find = myfoodservice.search(id, code);
 		System.out.println("----1 : " + find);
 		if (find == null) {
-			myfoodservice.insert(new MyFood(id, code, quantity));
+			myfoodservice.insert(new MyFood(id, code, quantity,date));
 		} else {
 			myfoodservice.update(new MyFood(id, code, quantity + find.getQuantity()));
 		}

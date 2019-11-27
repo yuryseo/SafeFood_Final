@@ -61,9 +61,9 @@ public class MyFoodServiceImp implements MyFoodService {
 	}
 
 	@Override
-	public void delete(String id, int code) {
+	public void remove(String id, int code) {
 		try {
-			dao.delete(id, code);
+			dao.remove(id, code);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
