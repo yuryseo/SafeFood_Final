@@ -366,7 +366,7 @@ function isLogined(flag){
 			</div>
 		</div>
 	</section>
-	<!--::industries end::-->	-->
+	<!--::industries end::-->
 
 	<!--top place start-->
 	<section class="client_review section_padding">
