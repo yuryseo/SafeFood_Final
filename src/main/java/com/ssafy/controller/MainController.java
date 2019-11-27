@@ -341,6 +341,7 @@ public class MainController {
 		System.out.println(id);
 		List<Wishlist> list = wishlistservice.search(id); // 해당아이디에 맞는 리스트만 불러옴
 		// 리턴 타입을 새로 만들어줘야해
+		Food wishfood = new Food();
 		List<Food> find =  new ArrayList<Food>() ;
 		if (list != null) {
 			System.out.println("list.size()....."+list.size());
@@ -349,6 +350,16 @@ public class MainController {
 				System.out.println((i+1)+"번째 wish list food......."+code);
 				Food food  = foodservice.search(code);
 				System.out.println("food............"+food);
+				wishfood.setCalory(Math.round((wishfood.getCalory()+ food.getCalory())*1000)/1000);
+				wishfood.setCarbo(Math.round((wishfood.getCarbo()+ food.getCarbo())*1000)/1000);
+				wishfood.setProtein(Math.round((wishfood.getProtein()+ food.getProtein())*1000)/1000);
+				wishfood.setFat(Math.round((wishfood.getFat()+ food.getFat())*1000)/1000);
+				wishfood.setSugar(Math.round((wishfood.getSugar()+ food.getSugar())*1000)/1000);
+				wishfood.setNatrium(Math.round((wishfood.getNatrium()+ food.getNatrium())*1000)/1000);
+				wishfood.setChole(Math.round((wishfood.getChole()+ food.getChole())*1000)/1000);
+				wishfood.setFattyacid(Math.round((wishfood.getFattyacid()+ food.getFattyacid())*1000)/1000);
+				wishfood.setTransfat(Math.round((wishfood.getTransfat()+ food.getTransfat())*1000)/1000);
+			
 				find.add(food);
 			}
 			model.addAttribute("list",  find);
@@ -365,7 +376,26 @@ public class MainController {
 			if (myFood.getId().equals(id) && myFood.getDate().equals(date))
 				todayList.add(myFood);
 		}
-		model.addAttribute("todayList", todayList); // 날짜별 검색된 섭취 식품들
+		System.out.println(todayList.size());
+		Food todayfood = new Food();
+		for (MyFood myFood : todayList) {
+			Food temp = foodservice.search(myFood.getCode());
+			int quantity = myFood.getQuantity();
+			todayfood.setCalory(Math.round((todayfood.getCalory()+ temp.getCalory()*quantity)*1000)/1000);
+			todayfood.setCarbo(Math.round((todayfood.getCarbo()+ temp.getCarbo()*quantity)*1000)/1000);
+			todayfood.setProtein(Math.round((todayfood.getProtein()+ temp.getProtein()*quantity)*1000)/1000);
+			todayfood.setFat(Math.round((todayfood.getFat()+ temp.getFat()*quantity)*1000)/1000);
+			todayfood.setSugar(Math.round((todayfood.getSugar()+ temp.getSugar()*quantity)*1000)/1000);
+			todayfood.setNatrium(Math.round((todayfood.getNatrium()+ temp.getNatrium()*quantity)*1000)/1000);
+			todayfood.setChole(Math.round((todayfood.getChole()+ temp.getChole()*quantity)*1000)/1000);
+			todayfood.setFattyacid(Math.round((todayfood.getFattyacid()+ temp.getFattyacid()*quantity)*1000)/1000);
+			todayfood.setTransfat(Math.round((todayfood.getTransfat()+ temp.getTransfat()*quantity)*1000)/1000);
+		}
+		System.out.println("wishfood....."+wishfood);
+		System.out.println("todayfood...."+todayfood);
+		model.addAttribute("wishfood", wishfood); // 찜 목록에 있는 식품들의 성분
+		model.addAttribute("todayfood", todayfood); // 날짜별 검색된 섭취 식품들의 성분
+	
 		
 		return "wishlist";
 	}

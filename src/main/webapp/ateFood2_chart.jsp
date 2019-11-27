@@ -43,12 +43,11 @@
 		<h2 align="center">내 섭취 식품 목록</h2>
 		<div class="row">
 			<div class="col-md-1"></div>
-			<div class="col-md-5">
+			<div class="col-md-8">
 				<canvas id="myChart"></canvas>
 			</div>
-			<div class="col-md-6"></div>
-		   </div>
-		그래프
+			<div class="col-md-3"></div>
+		</div>
 	</article>
 	</section>
 	<jsp:include page="copyright.jsp" />
@@ -64,6 +63,7 @@
 			var chole = $("#chole").text();
 			var fattyacid = $("#fattyacid").text();
 			var transfat = $("#transfat").text(); */
+			
 			var calory = 123;
 			var carbo = 23;
 			var protein = 35;
@@ -74,31 +74,42 @@
 			var fattyacid = 23;
 			var transfat = 23;
 
-			var calory2 = 112;
-			var carbo2 = 12;
-			var protein2 = 15;
-			var fat2 = 35;
-			var sugar2 = 12;
-			var natrium2 = 12;
-			var chole2 = 12;
-			var fattyacid2 = 12;
-			var transfat2 = 12;
+			var mcalory = 2600;
+			var mcarbo = 410;
+			var mprotein = 65;
+			var mfat = 65;
+			var msugar = 25;
+			var mnatrium = 1500;
+			var mchole = 300;
+			var mfattyacid = 15;
+			var mtransfat = 2.2;
+
+			var fcalory = 2100;
+			var fcarbo = 320;
+			var fprotein = 55;
+			var ffat = 45;
+			var fsugar = 25;
+			var fnatrium = 1500;
+			var fchole = 300;
+			var ffattyacid = 15;
+			var ftransfat = 2.2;
 
 			console.log(calory, carbo, protein, fat, sugar, natrium, chole,
 					fattyacid, transfat);
-			console.log(calory2, carbo2, protein2, fat2,
-					sugar2, natrium2, chole2, fattyacid2,
-					transfat2);
-			barChart(calory, carbo, protein, fat, sugar, natrium, chole,
-					fattyacid, transfat,calory2, carbo2, protein2, fat2,
-					sugar2, natrium2, chole2, fattyacid2,
-					transfat2);
+			console.log(mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,
+					mfattyacid, mtransfat);
+			console.log(fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,
+					ffattyacid, ftransfat);
+			barChart(calory, carbo, protein, fat, sugar, natrium, chole,fattyacid, transfat,
+					mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,mfattyacid, mtransfat,
+					fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,ffattyacid, ftransfat
+					);
 		});
 
-		function barChart(calory, carbo, protein, fat, sugar, natrium, chole,
-				fattyacid, transfat,calory2, carbo2, protein2, fat2,
-				sugar2, natrium2, chole2, fattyacid2,
-				transfat2) {
+		function barChart(calory, carbo, protein, fat, sugar, natrium, chole,fattyacid, transfat,
+				mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,mfattyacid, mtransfat,
+				fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,ffattyacid, ftransfat
+				) {
 			// 우선 컨텍스트를 가져옵니다. 
 			var ctx = document.getElementById("myChart").getContext('2d');
 			/*
@@ -113,7 +124,7 @@
 							"콜레스테롤", "포화지방산", "트랜스지방" ],
 					datasets : [
 							{
-								label : '권장섭취량',
+								label : '오늘 섭취량',
 								data : [ calory, carbo, protein, fat, sugar,
 										natrium, chole, fattyacid, transfat ],
 								backgroundColor : [ 'rgba(54, 162, 235, 0.2)',
@@ -137,7 +148,7 @@
 								borderWidth : 1
 							},
 							{
-								label : 'data2',
+								label : '찜한식품 섭취시 섭취량',
 								data : [ calory2, carbo2, protein2, fat2,
 										sugar2, natrium2, chole2, fattyacid2,
 										transfat2 ],
@@ -175,10 +186,12 @@
 			});
 		}
 	</script>
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-	
-		<script src="js/jquery.magnific-popup.js">
-	<script src="js/jquery.nice-select.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+	<script src="js/jquery.magnific-popup.js">
+		<script src="js/jquery.nice-select.min.js">
+	</script>
 	<script src="js/gijgo.min.js"></script>
 	<script src="js/custom.js"></script>
 </body>

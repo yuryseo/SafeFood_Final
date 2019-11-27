@@ -39,6 +39,11 @@
 			<td>2,100</td>
 		</tr>
 		<tr>
+			<td>탄수화물(g)</td>
+			<td>360~460</td>
+			<td>290~370</td>
+		</tr>
+		<tr>
 			<td>단백질(g)</td>
 			<td>65</td>
 			<td>55</td>
@@ -49,61 +54,33 @@
 			<td>35~58.3</td>
 		</tr>
 		<tr>
-			<td>탄수화물(g)</td>
-			<td>360~460</td>
-			<td>290~370</td>
+			<td>당류(g)</td>
+			<td>25</td>
+			<td>25</td>
 		</tr>
-		<tr>
-			<td>칼슘(mg)</td>
-			<td>750</td>
-			<td>650</td>
-		</tr>
+	
 		<tr>
 			<td>나트륨(mg)</td>
 			<td>1,500</td>
 			<td>1,500</td>
 		</tr>
 		<tr>
-			<td>비타민A(mg RE)</td>
-			<td>750</td>
-			<td>650</td>
+			<td>콜레스테롤(mg)</td>
+			<td>300</td>
+			<td>300</td>
 		</tr>
 		<tr>
-			<td>비타민C(mg)</td>
-			<td>100</td>
-			<td>100</td>
+			<td>포화지방산(g)</td>
+			<td>15</td>
+			<td>15</td>
 		</tr>
 		<tr>
-			<td>인(mg)</td>
-			<td>700</td>
-			<td>700</td>
+			<td>트렌스지방(g)</td>
+			<td>2.2</td>
+			<td>2.2</td>
 		</tr>
-		<tr>
-			<td>철(mg)</td>
-			<td>10</td>
-			<td>14</td>
-		</tr>
-		<tr>
-			<td>칼륨(mg)</td>
-			<td>3,500</td>
-			<td>3,500</td>
-		</tr>
-		<tr>
-			<td>티아민(mg)</td>
-			<td>1.2</td>
-			<td>1.1</td>
-		</tr>
-		<tr>
-			<td>리보플라빈(mg)</td>
-			<td>1.5</td>
-			<td>1.2</td>
-		</tr>
-		<tr>
-			<td>니아신(mg NE)</td>
-			<td>16</td>
-			<td>14</td>
-		</tr>
+		
 	</table>
-	
+
 </body>
 </html>
