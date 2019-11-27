@@ -353,6 +353,18 @@ public class MainController {
 			model.addAttribute("list",  find);
 		}
 		
+		//--- 오늘 날짜의 섭취한 식품들만 세팅하는 부분
+		List<MyFood> list2;
+		List<MyFood> todayList = new ArrayList<MyFood>();
+		list2 = myfoodservice.searchAll("searchName", "");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date time = new Date();
+		String date = dateFormat.format(time);
+		for (MyFood myFood : list2) {
+			if (myFood.getId().equals(id) && myFood.getDate().equals(date))
+				todayList.add(myFood);
+		}
+		model.addAttribute("todayList", todayList); // 날짜별 검색된 섭취 식품들
 		
 		return "wishlist";
 	}
