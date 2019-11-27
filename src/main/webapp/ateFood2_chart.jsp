@@ -47,7 +47,7 @@
 				<canvas id="myChart"></canvas>
 			</div>
 			<div class="col-md-6"></div>
-		</div>
+		   </div>
 		그래프
 	</article>
 	</section>
