@@ -417,7 +417,7 @@ public class MainController {
 				myfoodservice.update(new MyFood(id, code, quantity + find.getQuantity(), date));
 			else
 				myfoodservice.insert(new MyFood(id, code, quantity, date));
-		}
+		} 
 		foodservice.intakecount(code);
 		System.out.println("intake count++");
 		return "redirect:myFoodList.do";
