@@ -11,7 +11,7 @@
 	<br>
 	<article>
 		<section id="about" align="center">
-			<h3>┓ Find Us</h3>
+			<h3>Find Us</h3>
 			<hr>
 			<P>
 				<i class="fa fa-map"></i> 주소 : 서울시 강남구 역삼동<br /> <i
