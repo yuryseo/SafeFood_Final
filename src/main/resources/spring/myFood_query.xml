@@ -4,10 +4,11 @@
 
 <mapper namespace="com.ssafy.model.dao.IMyFoodMgr">
 	<insert id="insert" parameterType="myfood">
-		insert into myfood(id, code, quantity)
+		insert into myfood(id, code, quantity,date)
 		values(#{id:VARCHAR}
    		        ,#{code:INTEGER}
    		        ,#{quantity:INTEGER}
+   		        ,current_date()
    		       )
 	</insert>
 	

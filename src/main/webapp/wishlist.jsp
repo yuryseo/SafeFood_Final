@@ -47,15 +47,14 @@ function goDetail(foodcode){
 			<div class="row">
 				<c:forEach items="${list}" var="food">
 				<div class="col-lg-3 col-sm-3">
-				<form method='post' action="myFoodInsert.do">
-				<input type="hidden" name="code" value='${food.code}' />
-				<input type="hidden" name="quantity" value='1' />
+				<input type="hidden" name="code" value="${food.code}" />
+				<input type="hidden" name="quantity" value="1" />
 					<div class="single_ihotel_list">
 						<img src="${food.img }" alt="">
 						<div class="hover_text">
 							<div class="hotel_social_icon">
 								<ul>
-									<li><a  href="myFoodInsert.do"><i >섭취</i></a></li>
+									<li><a href="myFoodInsert.do"><i >섭취</i></a></li>
 									<li><a href="deletewishlist.do"><i>삭제</i></a></li>
 								</ul>
 							</div>
@@ -69,7 +68,6 @@ function goDetail(foodcode){
 							</h3>
 						</div>
 					</div>
-					</form>
 				</div>
 				</c:forEach>
 			</div>

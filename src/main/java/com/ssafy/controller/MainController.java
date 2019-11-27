@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssafy.model.dto.Food;
@@ -266,7 +268,8 @@ public class MainController {
 	
 	
 	
-	@GetMapping("deletewishlist.do")
+//	@GetMapping("deletewishlist.do")
+	@RequestMapping(value="deletewishlist.do",method= {RequestMethod.POST,RequestMethod.GET})
 	public void deletewishlist(int code,HttpSession session, Model model) {
 		
 		Member member = (Member) session.getAttribute("member");
@@ -346,7 +349,7 @@ public class MainController {
 		return "redirect:myFoodList.do";
 	}
 
-	@PostMapping("myFoodInsert.do")
+	@RequestMapping(value="myFoodInsert.do",method= {RequestMethod.POST,RequestMethod.GET})
 	public String myFoodInsert(int code, int quantity, HttpSession session) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
