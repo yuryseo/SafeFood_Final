@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myfood</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script type='text/javascript' src='js/jquery-3.3.1.js'></script>
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -36,6 +36,7 @@
 	<jsp:include page="main.jsp" />
 	<article id="contentArea">
 		<h2 align="center">내 섭취 식품 목록</h2>
+		<%@ include file="calendar.html" %>
 		<table id='listTable' align='center' width='80%'>
 			<c:forEach items="${list}" var="food">
 				<form method="post" id="frm2">
