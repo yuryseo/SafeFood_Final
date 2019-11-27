@@ -268,8 +268,8 @@ public class MainController {
 	}
 
 	@GetMapping("myFoodList.do")
-	public String myFoodListGet(String searchOption, String searchItem, String sortOption, HttpSession session,
-			Model model) {
+	public String myFoodListGet(String searchOption, String searchItem, String sortOption, String date, 
+			HttpSession session, Model model) {
 		List<MyFood> list;
 		List<MyFood> searchList = new ArrayList<MyFood>();
 		List<MyFood> list2 = new ArrayList<MyFood>();
@@ -292,7 +292,8 @@ public class MainController {
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date time = new Date();
-		String date = dateFormat.format(time);
+		if(date == null)
+			date = dateFormat.format(time);
 		list = myfoodservice.searchDate(key, word);
 		for (MyFood myFood : list) {
 			if (myFood.getId().equals(id) && myFood.getDate().equals(date))

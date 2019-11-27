@@ -63,20 +63,22 @@
 				window.onload = function () {
 					date = $('#calendar').val(); 
 		        	console.log(date);
-				}
+				};
 				
 				$('#calendar').datepicker({
 					inline : true,
 					showOtherMonths : true,
 					dateFormat: "yy-mm-dd",
 					showAnim: "slide",
+					currentText: "오늘",
+					gotoCurrent: true,
 					dayNamesMin : [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
 				});
 				
 				$('#calendar').change(function (){
 		            date = $('#calendar').val();
-		            
 		            console.log(date);
+					location.href = "myFoodList.do?date=" + date;
 		        });
 				
 			</script>
@@ -102,7 +104,8 @@
 					<tr>
 						<td align='left'>
 							<font size='4px'>섭취 날짜 : </font>
-							<input type="text" id="date" name="date" value="${searchMyFood.date}" />
+							${searchMyFood.date}
+							<input type="hidden" id="date" name="date" value="${searchMyFood.date}" />
 						</td>
 					</tr>
 					<tr id='listTableLastTr'>
