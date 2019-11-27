@@ -176,3 +176,7 @@ footer article {
 .recommandTable td{
 	border: solid 1px black;
 }
+
+.copymargin{
+	margin-top: 300px;
+}

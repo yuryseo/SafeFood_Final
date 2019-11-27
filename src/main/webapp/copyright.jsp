@@ -11,13 +11,15 @@
 	<br>
 	<article>
 	<div class="container">
+		<div class="copymargin">
+	<hr>
 			<div class="row justify-content-between">
 				<div class="col-sm-4 col-md-4">
 					
 				</div>
 				
 				<div class="col-sm-4 col-md-4">
-					<div class="single-footer-widget footer_icon"><hr>
+					<div class="single-footer-widget footer_icon">
 						<h3>Contact Us</h3><hr>
 						<i class="fa fa-map"> </i>&nbsp;&nbsp;주소 : 서울시 강남구 역삼동<hr>
 						<i class="fa fa-phone"></i>&nbsp;&nbsp;전화번호 : 1544-9001<hr> 
@@ -49,6 +51,7 @@
 					</div>
 				</div>
 			</div>	
+		</div>
 		</div>
 	</article>
 	<br>
