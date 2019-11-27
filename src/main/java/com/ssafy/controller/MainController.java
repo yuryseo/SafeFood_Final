@@ -289,7 +289,7 @@ public class MainController {
 		return "ateFood";
 	}
 
-	//찜 누르는 거 디비에 추가하게
+
 	
 	@RequestMapping(value="addwishlist.do",method= {RequestMethod.POST,RequestMethod.GET})
 	public String myFoodUpdate(int code,HttpSession session) {

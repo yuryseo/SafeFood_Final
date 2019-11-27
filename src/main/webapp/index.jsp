@@ -165,7 +165,7 @@ function isLogined(flag){
 				<div class="col-xl-6">
 					<div class="section_tittle text-center">
 						<h2>Top Foods</h2>
-						<p>사람들이 제일 많이 먹은 식품 	</p>
+						<p>사람들이 많이 먹은 식품 	</p>
 					</div>
 				</div>
 			</div>
