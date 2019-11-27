@@ -86,16 +86,18 @@ function goAteFood(flag, flag2) {
 							<td><font color="red">${allergyIngredients}</font></td>
 						</tr>
 						<tr>
-							<th align='left'>Quantity&nbsp;<br /> <input type="hidden"
-								name="code" value='${food.code}' /> <input type="number"
-								name='quantity' required="required" min="1" id='person' />
+							<td colspan="2" align='left'>
+								<b>Quantity</b>&nbsp;
+								<input type="hidden" name="code" value='${food.code}' />
+								<input type="number" name='quantity' required="required" min="1" id='person' />
+								&nbsp;&nbsp;&nbsp;&nbsp;<b>Date</b>&nbsp;
+								<input type="hidden" name="code" value='${food.code}' />
+								<input type="date" name='date' required="required"/>
 								<p />
 								<br />
-								<input type="submit" class='btn btn-info'
-									onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" value="추가"/>
+								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" value="추가"/>
 								<button type='button' class='btn btn-info'>찜</button>
-							</th>
-							<td></td>
+							</td>
 						</tr>
 					</table>
 				</form>
