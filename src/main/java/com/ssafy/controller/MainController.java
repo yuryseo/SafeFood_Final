@@ -264,6 +264,23 @@ public class MainController {
 
 	//찜 누르는 거 디비에 추가하게
 	
+	
+	
+	@GetMapping("deletewishlist.do")
+	public void deletewishlist(int code,HttpSession session, Model model) {
+		
+		Member member = (Member) session.getAttribute("member");
+		String id = member.getId();
+		System.out.println("deletewishlist....."+code);
+		Wishlist wishlist = new Wishlist(id,code);
+		wishlistservice.delete(wishlist);
+		
+		System.out.println("deletewishlist........");
+	}
+	
+	
+	
+	
 	@GetMapping("wishlist.do")	// 리스트 불러오는거
 	public String WishListGet(HttpSession session, Model model) {
 		System.out.println("wishlist");
@@ -272,16 +289,17 @@ public class MainController {
 		System.out.println(id);
 		List<Wishlist> list = wishlistservice.search(id); // 해당아이디에 맞는 리스트만 불러옴
 		// 리턴 타입을 새로 만들어줘야해
-		List<Food> find = null;
+		List<Food> find =  new ArrayList<Food>() ;
 		if (list != null) {
-			
+			System.out.println("list.size()....."+list.size());
 			for (int i = 0; i < list.size(); i++) {
 				int code = list.get(i).getCode();
 				System.out.println((i+1)+"번째 wish list food......."+code);
 				Food food  = foodservice.search(code);
+				System.out.println("food............"+food);
 				find.add(food);
 			}
-			//model.addAttribute("list",  find);
+			model.addAttribute("list",  find);
 		}
 		return "wishlist";
 	}
