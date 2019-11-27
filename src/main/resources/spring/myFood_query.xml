@@ -8,10 +8,16 @@
 		values(#{id:VARCHAR}
    		        ,#{code:INTEGER}
    		        ,#{quantity:INTEGER}
-   		        ,current_date()
+   		        ,#{date:VARCHAR}
    		       )
 	</insert>
-	
+	<insert id="insert" parameterType="myfood">
+		insert into myfood(id, code, quantity)
+		values(#{id:VARCHAR}
+   		        ,#{code:INTEGER}
+   		        ,#{quantity:INTEGER}
+   		       )
+	</insert>
 	<select id="search" parameterType="searchmyfoodinfo" resultType="myfood">
 		select id, code, quantity, name, maker, material, img
 		from myfood
@@ -49,7 +55,7 @@
    		</where>
    </select>
    
-   <delete id="remove" 		parameterType="searchmyfoodinfo">
+   <delete id="delete" 		parameterType="searchmyfoodinfo">
    		delete from myfood where id=#{id} and code=#{code}
    </delete>
    
