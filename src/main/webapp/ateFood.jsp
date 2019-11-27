@@ -135,7 +135,7 @@
 							<input type="text" id="quantity" name="quantity" value="${food.quantity}" />
 						</td>
 					</tr>
-					<tr> 
+					<tr>
 						<td align='left'>
 							<font size='4px'>섭취 날짜 : </font>
 							{food.date}
