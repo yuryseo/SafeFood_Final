@@ -16,5 +16,5 @@ public interface IMyFoodMgr {
 
 	public void update(MyFood myfood) throws Exception;
 
-	public void remove(String id, int code) throws Exception;
+	public void remove(String id, int code) throws Exception; 
 }
