@@ -243,7 +243,7 @@ public class MainController {
 		Member member = (Member) session.getAttribute("member");
 		for (int i = 0; i < nations.length; i++) {
 			if(materials.contains(nations[i])) {
-				madein+=nations[i]+"산, ";
+				madein+=nations[i]+"산 ";
 			}
 		}
 		System.out.println("madein......"+madein);
@@ -285,7 +285,7 @@ public class MainController {
 			if (myFood.getId().equals(id))
 				list2.add(myFood);
 		}
-		model.addAttribute("list", list2);
+		model.addAttribute("list", list2); // 모든 섭취 식품들
 		return "ateFood";
 	}
 
@@ -366,19 +366,19 @@ public class MainController {
 	}
 
 	@PostMapping("myFoodUpdate.do")
-	public String myFoodUpdate(int code, int quantity,HttpSession session, Model model) {
+	public String myFoodUpdate(int code, String date, int quantity,HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
-		System.out.println("--code : " + code + " quantity : " + quantity);
-		myfoodservice.update(new MyFood(id, code, quantity));
+		System.out.println("--code : " + code + " quantity : " + quantity + " date : " + date);
+		myfoodservice.update(new MyFood(id, code, quantity, date));
 		return "redirect:myFoodList.do";
 	}
 
 	@PostMapping("myFoodDelete.do")
-	public String myFoodDelete(int code, HttpSession session, Model model) {
+	public String myFoodDelete(int code, String date, HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
-		myfoodservice.remove(id, code);
+		myfoodservice.remove(id, code, date);
 		return "redirect:myFoodList.do";
 	}
 
@@ -386,13 +386,16 @@ public class MainController {
 	public String myFoodInsert(int code, int quantity, String date, HttpSession session) {
 		Member member = (Member) session.getAttribute("member");
 		String id = member.getId();
-		System.out.println("----code : " + code + ", quantity : " + quantity + ", id : " + id);
-		MyFood find = myfoodservice.search(id, code);
+		System.out.println("----code : " + code + ", quantity : " + quantity + ", id : " + id + ", date : " + date);
+		MyFood find = myfoodservice.search(id, code, date);
 		System.out.println("----1 : " + find);
 		if (find == null) {
-			myfoodservice.insert(new MyFood(id, code, quantity,date));
+			myfoodservice.insert(new MyFood(id, code, quantity, date));
 		} else {
-			myfoodservice.update(new MyFood(id, code, quantity + find.getQuantity()));
+			if(find.getDate().equals(date))
+				myfoodservice.update(new MyFood(id, code, quantity + find.getQuantity(), date));
+			else
+				myfoodservice.insert(new MyFood(id, code, quantity, date));
 		}
 		foodservice.intakecount(code);
 		System.out.println("intake count++");

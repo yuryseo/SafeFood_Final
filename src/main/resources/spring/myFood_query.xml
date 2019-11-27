@@ -4,7 +4,7 @@
 
 <mapper namespace="com.ssafy.model.dao.IMyFoodMgr">
 	<insert id="insert" parameterType="myfood">
-		insert into myfood(id, code, quantity,date)
+		insert into myfood(id, code, quantity, date)
 		values(#{id:VARCHAR}
    		        ,#{code:INTEGER}
    		        ,#{quantity:INTEGER}
@@ -13,11 +13,11 @@
 	</insert>
 
 	<select id="search" parameterType="searchmyfoodinfo" resultType="myfood">
-		select id, code, quantity, name, maker, material, img
+		select id, code, quantity, name, maker, material, img, date
 		from myfood
 		left join food
 		using (code)
-		where id=#{id} and code=#{code}
+		where id=#{id} and code=#{code} and date=#{date}
 	</select>
 	
 	<select id="searchDate" parameterType="searchmyfoodinfo" resultType="myfood">
@@ -25,16 +25,8 @@
 		from myfood
 		left join food
 		using (code)
-		where id=#{id} and code=#{code} and date={#date}
-	</select>
-	
-
-	<select id="searchAll" parameterType="pagebean"	resultType="myfood">
-		select id, code, quantity, name, maker, material, img
-		from myfood
-		left join food
-		using (code)
-   		<!-- 동적 쿼리시 조건에 의해 where 나 and를 붙여주는 태그  -->
+		where id=#{id} and code=#{code} and date=#{date}
+		<!-- 동적 쿼리시 조건에 의해 where 나 and를 붙여주는 태그  -->
    		<where>
    			<if test='key != null and key!="all"'>
    				<if test="word != null">
@@ -55,15 +47,23 @@
 				</if>
    			</if>
    		</where>
+	</select>
+	
+
+	<select id="searchAll" parameterType="pagebean"	resultType="myfood">
+		select id, code, quantity, name, maker, material, img, date
+		from myfood
+		left join food
+		using (code)
    </select>
    
    <delete id="remove" 		parameterType="searchmyfoodinfo">
-   		delete from myfood where id=#{id} and code=#{code}
+   		delete from myfood where id=#{id} and code=#{code} and date = #{date:VARCHAR} 
    </delete>
    
    <update id="update"		parameterType="myfood">
    		update myfood set quantity=#{quantity:INTEGER}
-   		where  id = #{id:VARCHAR} and code = #{code:INTEGER}
+   		where  id = #{id:VARCHAR} and code = #{code:INTEGER} and date = #{date:VARCHAR} 
    </update>
    
 </mapper>

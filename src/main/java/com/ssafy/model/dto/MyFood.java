@@ -75,7 +75,7 @@ public class MyFood {
 
 	@Override
 	public String toString() {
-		return "MyFood [id=" + id + ", code=" + code + ", quantity=" + quantity + "]";
+		return "MyFood [id=" + id + ", code=" + code + ", quantity=" + quantity + ", date=" + date + ", name=" + name
+				+ ", img=" + img + "]";
 	}
-
 }

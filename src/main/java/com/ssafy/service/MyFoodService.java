@@ -4,7 +4,7 @@ import java.util.List;
 import com.ssafy.model.dto.MyFood;
 
 public interface MyFoodService {
-	public MyFood search(String id, int code);
+	public MyFood search(String id, int code, String date);
 
 	public List<MyFood> searchAll(String key, String word);
 	
@@ -14,5 +14,5 @@ public interface MyFoodService {
 
 	public void update(MyFood myfood);
 
-	public void remove(String id, int code);
+	public void remove(String id, int code, String date);
 }

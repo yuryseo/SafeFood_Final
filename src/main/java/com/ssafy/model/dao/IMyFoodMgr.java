@@ -6,7 +6,7 @@ import com.ssafy.model.dto.MyFood;
 
 @Mapper
 public interface IMyFoodMgr {
-	public MyFood search(String id, int code) throws Exception;
+	public MyFood search(String id, int code, String date) throws Exception;
 
 	public List<MyFood> searchAll(String key, String word) throws Exception;
 	
@@ -16,5 +16,5 @@ public interface IMyFoodMgr {
 
 	public void update(MyFood myfood) throws Exception;
 
-	public void remove(String id, int code) throws Exception; 
+	public void remove(String id, int code, String date) throws Exception; 
 }

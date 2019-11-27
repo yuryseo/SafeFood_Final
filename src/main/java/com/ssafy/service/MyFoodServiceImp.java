@@ -14,9 +14,9 @@ public class MyFoodServiceImp implements MyFoodService {
 	private IMyFoodMgr dao;
 
 	@Override
-	public MyFood search(String id, int code) {
+	public MyFood search(String id, int code, String date) {
 		try {
-			MyFood find = dao.search(id, code);
+			MyFood find = dao.search(id, code, date);
 			return find;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,12 +40,8 @@ public class MyFoodServiceImp implements MyFoodService {
 	@Override
 	public void insert(MyFood myfood) {
 		try {
-			MyFood find = dao.search(myfood.getId(), myfood.getCode());
-			if (find == null) {
-				dao.insert(myfood);
-			} else {
-				throw new DuplicateException();
-			}
+			MyFood find = dao.search(myfood.getId(), myfood.getCode(), myfood.getDate());
+			dao.insert(myfood);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -61,9 +57,9 @@ public class MyFoodServiceImp implements MyFoodService {
 	}
 
 	@Override
-	public void remove(String id, int code) {
+	public void remove(String id, int code, String date) {
 		try {
-			dao.remove(id, code);
+			dao.remove(id, code, date);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
