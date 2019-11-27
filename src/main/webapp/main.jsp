@@ -51,6 +51,21 @@ function isLogined(flag){
 					</div>
 				</div>
 				<div class="col-lg-12">
+					<div class="searchtop4">
+						<div class="form-row">
+							<ul>
+								 &nbsp; &nbsp; &nbsp;자주 검색한 식품명 검색 &nbsp;
+
+								<c:forEach var='f' items="${searchTop4}">
+									<a href="foodDetail.do?foodcode=${f.code}">&nbsp; &nbsp;
+										${f.name}&nbsp; &nbsp; </a>
+								</c:forEach>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12">
 					<div class="booking_content">
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="hotel" role="tabpanel"
