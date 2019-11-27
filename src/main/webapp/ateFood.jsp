@@ -138,7 +138,8 @@
 					<tr>
 						<td align='left'>
 							<font size='4px'>섭취 날짜 : </font>
-							<input type="text" id="date" name="date" value="${food.date}" />
+							{food.date}
+							<input type="hidden" id="date" name="date" value="${food.date}" />
 						</td>
 					</tr>
 					<tr id='listTableLastTr'>
