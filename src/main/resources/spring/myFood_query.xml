@@ -20,6 +20,14 @@
 		where id=#{id} and code=#{code}
 	</select>
 	
+	<select id="searchDate" parameterType="searchmyfoodinfo" resultType="myfood">
+		select id, code, quantity, name, maker, material, img, date
+		from myfood
+		left join food
+		using (code)
+		where id=#{id} and code=#{code} and date={#date}
+	</select>
+	
 
 	<select id="searchAll" parameterType="pagebean"	resultType="myfood">
 		select id, code, quantity, name, maker, material, img

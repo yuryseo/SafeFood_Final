@@ -7,6 +7,8 @@ public interface MyFoodService {
 	public MyFood search(String id, int code);
 
 	public List<MyFood> searchAll(String key, String word);
+	
+	public List<MyFood> searchDate(String id, int code, String date);
 
 	public void insert(MyFood myfood);
 

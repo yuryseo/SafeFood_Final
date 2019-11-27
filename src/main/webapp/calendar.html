@@ -23,16 +23,16 @@
 	<script>
 		$('#calendar').datepicker({
 			inline : true,
-			firstDay : 1,
 			showOtherMonths : true,
+			dateFormat: "yy-mm-dd",
+			showAnim: "slide",
 			dayNamesMin : [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
 		});
 		
-		$('#calendar').datepicker({
-		    onSelect: function(dateText, inst) {
-		        console.log(dateText);
-		    }
-		});
+		$('#calendar').change(function (){
+            var date = $('#calendar').val();
+            console.log(date);
+        });
 	</script>
 
 </body>

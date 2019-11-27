@@ -69,4 +69,15 @@ public class MyFoodServiceImp implements MyFoodService {
 		}
 	}
 
+	@Override
+	public List<MyFood> searchDate(String id, int code, String date) {
+		try {
+			List<MyFood> find = dao.searchDate(id, code, date);
+			return find;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
