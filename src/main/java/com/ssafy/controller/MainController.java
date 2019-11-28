@@ -200,13 +200,13 @@ public class MainController {
 			String key = searchOption;
 			String word = searchItem;
 			String sortKey = sortOption;
-			if (key == null) {
+			if (key == null || key.equals("검색 조건")) {
 				key = "searchName";
 			}
 			if (word == null ) {
 				word = "";
 			}
-			if (sortKey == null) {
+			if (sortKey == null || sortKey.equals("정렬")) {
 				sortKey = "sortName";
 			}
 			// list = foodservice.All();
@@ -282,18 +282,19 @@ public class MainController {
 		String sortKey = sortOption;
 		String searchDatetemp = searchDate;
 		String searchDateItem = "";
-		if(searchDatetemp != null) {
+		System.out.println("!!!!!!!!!!!!!!!!!!!!" + searchDate);
+		if(searchDatetemp != null && !searchDatetemp.equals("")) {
 			String[] searchhDateItems = searchDatetemp.split("/");
 			searchDateItem += searchhDateItems[2] + "-" + searchhDateItems[0] + "-" + searchhDateItems[1];
 		}
 		System.out.println("-------" + searchDateItem);
-		if (key == null) {
+		if (key == null || key.equals("검색 조건")) {
 			key = "searchName";
 		}
 		if (word == null ) {
 			word = "";
 		}
-		if (sortKey == null) {
+		if (sortKey == null || sortKey.equals("정렬")) {
 			sortKey = "sortName";
 		}
 		list = myfoodservice.searchAll(key, word);
@@ -309,7 +310,7 @@ public class MainController {
 		Date time = new Date();
 		if(date == null)
 			date = dateFormat.format(time);
-		if(searchDate != null) {
+		if(!searchDateItem.equals("")) {
 			date = searchDateItem;
 			model.addAttribute("date", date);
 		}
@@ -427,9 +428,13 @@ public class MainController {
 		String key = searchOption;
 		String word = searchItem;
 		String sortKey = sortOption;
-		if (key == null && word == null && sortKey == null) {
+		if (key == null || key.equals("검색 조건")) {
 			key = "searchName";
+		}
+		if (word == null ) {
 			word = "";
+		}
+		if (sortKey == null || sortKey.equals("정렬")) {
 			sortKey = "sortName";
 		}
 		list = myfoodservice.searchAll(key, word);
