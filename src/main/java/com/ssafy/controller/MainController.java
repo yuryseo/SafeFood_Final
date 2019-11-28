@@ -49,10 +49,12 @@ public class MainController {
 
 	@GetMapping("/")
 	String start(HttpSession session) {
-		session.invalidate();
-		return "redirect:index.jsp";
+		return "redirect:/index.do";
 	}
-
+	@GetMapping("")
+	String start2(HttpSession session) {
+		return "redirect:/index.do";
+	}
 	@GetMapping("index.do")
 	String index(HttpSession session,Model model) {
 		List<Food> searchTop4 = foodservice.searchcountTop4();
@@ -60,7 +62,6 @@ public class MainController {
 		List<Food> intakeTop4 = foodservice.intakecountTop4();
 		session.setAttribute("intakeTop4", intakeTop4);
 		List<Food> list = foodservice.searchAll("all", "");
-		//model.addAttribute("list", list);
 		session.setAttribute("list", list);
 		return "redirect:index.jsp";
 	}
