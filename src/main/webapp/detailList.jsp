@@ -136,6 +136,7 @@ function goAteFood(flag, flag2) {
 								</tr>
 								<tr>
 									<th>지방</th>
+									<td >${food.fat }</td>
 								</tr>
 								<tr>
 									<th>당류</th>
