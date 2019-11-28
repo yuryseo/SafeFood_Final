@@ -200,9 +200,13 @@ public class MainController {
 			String key = searchOption;
 			String word = searchItem;
 			String sortKey = sortOption;
-			if (key == null && word == null && sortKey == null) {
-				key = "all";
+			if (key == null) {
+				key = "searchName";
+			}
+			if (word == null ) {
 				word = "";
+			}
+			if (sortKey == null) {
 				sortKey = "sortName";
 			}
 			// list = foodservice.All();
@@ -268,7 +272,7 @@ public class MainController {
 	}
 
 	@GetMapping("myFoodList.do")
-	public String myFoodListGet(String searchOption, String searchItem, String sortOption, String date, 
+	public String myFoodListGet(String searchOption, String searchItem, String sortOption, String searchDate, String date, 
 			HttpSession session, Model model) {
 		List<MyFood> list;
 		List<MyFood> searchList = new ArrayList<MyFood>();
@@ -276,9 +280,20 @@ public class MainController {
 		String key = searchOption;
 		String word = searchItem;
 		String sortKey = sortOption;
-		if (key == null && word == null && sortKey == null) {
+		String searchDatetemp = searchDate;
+		String searchDateItem = "";
+		if(searchDatetemp != null) {
+			String[] searchhDateItems = searchDatetemp.split("/");
+			searchDateItem += searchhDateItems[2] + "-" + searchhDateItems[0] + "-" + searchhDateItems[1];
+		}
+		System.out.println("-------" + searchDateItem);
+		if (key == null) {
 			key = "searchName";
+		}
+		if (word == null ) {
 			word = "";
+		}
+		if (sortKey == null) {
 			sortKey = "sortName";
 		}
 		list = myfoodservice.searchAll(key, word);
@@ -294,6 +309,10 @@ public class MainController {
 		Date time = new Date();
 		if(date == null)
 			date = dateFormat.format(time);
+		if(searchDate != null) {
+			date = searchDateItem;
+			model.addAttribute("date", date);
+		}
 		list = myfoodservice.searchDate(key, word);
 		for (MyFood myFood : list) {
 			if (myFood.getId().equals(id) && myFood.getDate().equals(date))
@@ -401,7 +420,7 @@ public class MainController {
 	}
 
 	@PostMapping("myFoodList.do")
-	public String myFoodListPost(String searchOption, String searchItem, String sortOption, HttpSession session,
+	public String myFoodListPost(String searchOption, String searchItem, String sortOption, String searchDate, HttpSession session,
 			Model model) {
 		List<MyFood> list;
 		List<MyFood> list2 = new ArrayList<MyFood>();

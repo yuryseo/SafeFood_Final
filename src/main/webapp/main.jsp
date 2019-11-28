@@ -55,12 +55,10 @@ function isLogined(flag){
 						<div class="form-row">
 							<ul>
 								 &nbsp; &nbsp; &nbsp;자주 검색한 식품명 검색 &nbsp;
-
 								<c:forEach var='f' items="${searchTop4}">
 									<a href="foodDetail.do?foodcode=${f.code}">&nbsp; &nbsp;
 										${f.name}&nbsp; &nbsp; </a>
 								</c:forEach>
-
 							</ul>
 						</div>
 					</div>
@@ -120,6 +118,9 @@ function isLogined(flag){
 													<option id="searcEtc" value="searcEtc">기타</option>
 												</select>
 											</div>
+											<div class="form_colum">
+                                                <input id="datepicker_1" name="searchDate" placeholder="검색 날짜">
+                                            </div>
 											<div class="form_colum">
 												<input type="text" class="nc_input" id="searchItem" name="searchItem" placeholder="검색 단어">
 											</div>
