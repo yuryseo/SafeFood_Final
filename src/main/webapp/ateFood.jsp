@@ -59,7 +59,14 @@
 			<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 			<script src="js/jquery-ui-datepicker.min.js"></script>
 			<script>
-			
+				$(document).ready(function(){
+					var date = searchParam('date');
+					if(date != null){
+						var offset = $('#calendar').offset();
+						$('html').animate({scrollTop : offset.top - 200}, 0);
+					}
+				});
+
 				$('#calendar').datepicker({
 					inline : true,
 					showOtherMonths : true,
