@@ -29,7 +29,7 @@
 	<jsp:include page="header.jsp" />
 	<section id='content'>
 		<article id="contentArea">
-			<%@ include file="index2.html" %>
+			<%@ include file="qna.html" %>
 		</article>
 	</section>
 	<jsp:include page="copyright.jsp" />
