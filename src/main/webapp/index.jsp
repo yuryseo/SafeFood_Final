@@ -138,6 +138,9 @@ function isLogined(flag){
 												</select>
 											</div>
 											<div class="form_colum">
+                                                <input id="datepicker_1" name="searchDate" placeholder="검색 날짜">
+                                            </div>
+											<div class="form_colum">
 												<input type="text" class="nc_input" id="searchItem"
 													name="searchItem" placeholder="검색 단어">
 											</div>
