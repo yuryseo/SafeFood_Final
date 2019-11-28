@@ -138,8 +138,9 @@ function isLogined(flag){
 												</select>
 											</div>
 											<div class="form_colum">
-                                                <input id="datepicker_1" name="searchDate" placeholder="검색 날짜">
-                                            </div>
+												<input id="datepicker_1" name="searchDate"
+													placeholder="검색 날짜">
+											</div>
 											<div class="form_colum">
 												<input type="text" class="nc_input" id="searchItem"
 													name="searchItem" placeholder="검색 단어">
@@ -168,40 +169,44 @@ function isLogined(flag){
 				<div class="col-xl-6">
 					<div class="section_tittle text-center">
 						<h2>Top Foods</h2>
-						<p>사람들이 많이 먹은 식품 	</p>
+						<p>사람들이 많이 먹은 식품</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-					
+
 				<c:forEach items="${intakeTop4}" var="food" varStatus="status">
 					<div class="col-lg-3 col-md-3">
 						<div class="single_place">
-								<%-- <div class="numbering">
-										<i>${status.count}</i>
-								</div> --%>
+							<div class="numbering col-4" style="background-color: #ff8040; border-radius: 10px; left: 10px; top: 10px; height: 25px;">
+								Best ${status.count}
+							</div>
 							<img src="${food.img}" alt="">
 							<div
 								class="hover_Text d-flex align-items-end justify-content-between">
-								
+
 								<div class="hover_text_iner">
 									<h3>${food.name}</h3>
 									<%-- <h3>${status.count}</h3> --%>
-									
+	
 									<a href="foodDetail.do?foodcode=${food.code}" class="place_btn">상세보기</a>
-									
+
 									<div class="place_review">
-										<a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
-										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
-										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
-										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
-										 <a href="foodDetail.do?foodcode=${food.code}"><i class="fas fa-star"></i></a>
-											 <ul style="color: white">${food.intakecount} takes</ul>
+										<a href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a> <a
+											href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a> <a
+											href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a> <a
+											href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a> <a
+											href="foodDetail.do?foodcode=${food.code}"><i
+											class="fas fa-star"></i></a>
+										<ul style="color: white">${food.intakecount}takes
+										</ul>
 									</div>
 								</div>
-								<!-- <div class="details_icon text-right">
-								<i class="ti-share"></i>
-							</div> -->
+								 
 							</div>
 						</div>
 					</div>
@@ -214,7 +219,7 @@ function isLogined(flag){
 	</section>
 	<!--top place end-->
 
-	 <!--event_part start-->
+	<!--event_part start-->
 	<!--<section class="event_part section_padding">
 		<div class="container">
 			<div class="row">
@@ -327,7 +332,7 @@ function isLogined(flag){
 	<!-- event_part end -->
 
 	<!--::industries start::-->
-<!--	<section class="hotel_list section_padding">
+	<!--	<section class="hotel_list section_padding">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
@@ -391,66 +396,21 @@ function isLogined(flag){
 				<div class="col-lg-12">
 					<div class="client_review_slider owl-carousel">
 						<c:forEach items="${list}" var="f">
-						<div class="single_review_slider">
-							<div class="place_review">
-							<img src="${f.img}" />
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a>
+							<div class="single_review_slider">
+							<a href="foodDetail.do?foodcode=${f.code}">
+								<div class="place_review">
+									<img src="${f.img}" /> <a href="#"><i class="fas fa-star"></i></a>
+									<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+										class="fas fa-star"></i></a> <a href="#"><i
+										class="fas fa-star"></i></a> <a href="#"><i
+										class="fas fa-star"></i></a>
+								</div>
+								<h5>${f.maker}</h5>
+								<h3>${f.name}</h3>
+								</a>
 							</div>
-							<h5>${f.maker}</h5>
-							<h3>${f.name}</h3>
-						</div>
 						</c:forEach>
-						<!-- <div class="single_review_slider">
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a>
-							</div>
-							<p>Waters make fish every without firmament saw had. Morning
-								air subdue. Our Air very one whales grass is fish whales winged
-								night yielding land creeping that seed</p>
-							<h5>- Allen Miller</h5>
-						</div>
-						<div class="single_review_slider">
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a>
-							</div>
-							<p>Waters make fish every without firmament saw had. Morning
-								air subdue. Our Air very one whales grass is fish whales winged
-								night yielding land creeping that seed</p>
-							<h5>- Allen Miller</h5>
-						</div>
-						<div class="single_review_slider">
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a>
-							</div>
-							<p>Waters make fish every without firmament saw had. Morning
-								air subdue. Our Air very one whales grass is fish whales winged
-								night yielding land creeping that seed</p>
-							<h5>- Allen Miller</h5>
-						</div>
-						<div class="single_review_slider">
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a>
-							</div>
-							<p>Waters make fish every without firmament saw had. Morning
-								air subdue. Our Air very one whales grass is fish whales winged
-								night yielding land creeping that seed</p>
-							<h5>- Allen Miller</h5>
-						</div> -->
+					
 					</div>
 				</div>
 			</div>
@@ -458,7 +418,7 @@ function isLogined(flag){
 	</section>
 	<!--top place end-->
 
-		<jsp:include page="copyright.jsp" />
+	<jsp:include page="copyright.jsp" />
 
 
 
