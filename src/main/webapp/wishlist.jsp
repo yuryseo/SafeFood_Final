@@ -99,7 +99,7 @@
 				</div>
 			</article>
 		</div>
-	</section>
+	</section> 
 
 
 	<jsp:include page="copyright.jsp" />
