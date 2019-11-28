@@ -3133,7 +3133,7 @@ ul {
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	transform: scaleX(1);
-} */
+} 
 .numbering i {
 	width: 50px;
 	height: 50px;
@@ -3144,7 +3144,8 @@ ul {
 	text-align: center;
 	background-color: #ff8040;
 	border-radius: 50%;
-}
+	
+}*/
 /* line 58, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
 .hotel_list .single_ihotel_list .hover_text .hotel_social_icon {
 	-webkit-transition: 0.5s;

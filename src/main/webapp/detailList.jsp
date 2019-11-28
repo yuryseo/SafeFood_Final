@@ -99,9 +99,10 @@ function goAteFood(flag, flag2) {
 								<input type="date" name='date' required="required"/>
 								<p />
 								
-								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" value="추가"/>
-								<%-- <button type='button' class='btn btn-info'  herf="addwishlist.do" onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});">찜</button>
-							 --%>
+								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});"  formaction="myFoodInsert.do" value="추가"/>
+								<input type="submit" class='btn btn-info' onclick="return goAteFood(${empty member.id}, ${empty allergyIngredients});" formaction="addwishlist.do"  value="찜" />
+								
+								
 							</td>
 						</tr>
 					</table>
