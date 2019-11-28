@@ -374,14 +374,27 @@ function isLogined(flag){
 			<div class="row ">
 				<div class="col-xl-6">
 					<div class="section_tittle">
-						<h2>What they said</h2>
+						<h2>What we provide</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="client_review_slider owl-carousel">
+						<c:forEach items="${list}" var="f">
 						<div class="single_review_slider">
+							<div class="place_review">
+							<img src="${f.img}" />
+								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
+								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+									class="fas fa-star"></i></a>
+							</div>
+							<h5>${f.maker}</h5>
+							<h3>${f.name}</h3>
+						</div>
+						</c:forEach>
+						<!-- <div class="single_review_slider">
 							<div class="place_review">
 								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
 									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
@@ -428,19 +441,7 @@ function isLogined(flag){
 								air subdue. Our Air very one whales grass is fish whales winged
 								night yielding land creeping that seed</p>
 							<h5>- Allen Miller</h5>
-						</div>
-						<div class="single_review_slider">
-							<div class="place_review">
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a> <a href="#"><i class="fas fa-star"></i></a>
-								<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-									class="fas fa-star"></i></a>
-							</div>
-							<p>Waters make fish every without firmament saw had. Morning
-								air subdue. Our Air very one whales grass is fish whales winged
-								night yielding land creeping that seed</p>
-							<h5>- Allen Miller</h5>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

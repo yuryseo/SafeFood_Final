@@ -3271,31 +3271,32 @@ ul {
 /******** client review part css *********/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_client_review.scss */
 .client_review {
-	background-color: #0c3e72;
+	background-color: #f9dbaa;
 }
 
 /* line 5, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_client_review.scss */
 .client_review .section_tittle h2 {
-	color: #fff;
+	color: #0c3e72;
 }
 
 /* line 9, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_client_review.scss */
 .client_review .single_review_slider {
-	background-color: #0e477d;
+	background-color: #ffffff;
 	padding: 30px;
+	border-radius: 10px;
 }
 
 /* line 12, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_client_review.scss */
 .client_review .single_review_slider p {
 	display: inline-block;
-	color: #fff;
+	color: #0c3e72;
 	margin: 26px 0 32px;
 }
 
 /* line 17, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_client_review.scss */
 .client_review .single_review_slider h5 {
 	font-weight: 18px;
-	color: #fff;
+	color: #0c3e72;
 }
 
 /* line 21, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_client_review.scss */
@@ -3324,7 +3325,7 @@ ul {
 	line-height: 45px;
 	text-align: center;
 	display: inline-block;
-	background-color: #2493e0 !important;
+	background-color: #ff8040!important;
 	color: #fff !important;
 }
 
