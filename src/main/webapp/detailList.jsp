@@ -182,13 +182,13 @@ function goAteFood(flag, flag2) {
 		var fattyacid = $("#fattyacid").text();
 		var transfat = $("#transfat").text();
 
-		console.log(calory, carbo, protein, fat, sugar, natrium, chole,
+		console.log( carbo, protein, fat, sugar, natrium, chole,
 				fattyacid, transfat);
-		DoughnutChart(calory, carbo, protein, fat, sugar, natrium, chole,
+		DoughnutChart( carbo, protein, fat, sugar, natrium, chole,
 				fattyacid, transfat);
 	});
 
-	function DoughnutChart(calory, carbo, protein, fat, sugar, natrium, chole,
+	function DoughnutChart( carbo, protein, fat, sugar, natrium, chole,
 			fattyacid, transfat) {
 		// 우선 컨텍스트를 가져옵니다. 
 		var ctx = document.getElementById("myChart").getContext('2d');
@@ -201,16 +201,15 @@ function goAteFood(flag, flag2) {
 				{
 					type : 'doughnut',
 					data : {
-						labels : [ "칼로리", "탄수화물", "단백질", "지방", "당류", "나트륨",
+						labels : [  "탄수화물", "단백질", "지방", "당류", "나트륨",
 								"콜레스테롤", "포화지방산", "트랜스지방" ],
 						datasets : [ {
 							label : '# of Votes',
-							data : [ calory, carbo, protein, fat, sugar,
+							data : [  carbo, protein, fat, sugar,
 									natrium, chole, fattyacid, transfat ],
 							backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
 									'rgba(54, 162, 235, 0.2)',
 									'rgba(255, 206, 86, 0.2)',
-									'rgba(75, 192, 192, 0.2)',
 									'rgba(153, 102, 255, 0.2)',
 									'rgba(255, 159, 64, 0.2)',
 									'rgba(255, 215, 000, 0.2)',
@@ -220,7 +219,6 @@ function goAteFood(flag, flag2) {
 									'rgba(54, 162, 235, 1)',
 									'rgba(255, 206, 86, 1)',
 									'rgba(75, 192, 192, 1)',
-									'rgba(153, 102, 255, 1)',
 									'rgba(255, 159, 64, 1)',
 									'rgba(255, 215, 000, 1)',
 									'rgba(075, 000, 130, 1)',
