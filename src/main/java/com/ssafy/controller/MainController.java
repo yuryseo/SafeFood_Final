@@ -78,12 +78,9 @@ public class MainController {
 
 	@PostMapping("logout.do")
 	public String logout(HttpSession session) {
+		session.invalidate();
 		
-		List<Food> searchTop4 = foodservice.searchcountTop4();
-		session.setAttribute("searchTop4", searchTop4);
-		List<Food> intakeTop4 = foodservice.intakecountTop4();
-		session.setAttribute("intakeTop4", intakeTop4);
-		return "redirect:index.jsp";
+		return "redirect:index.do";
 	}
 
 	@GetMapping("RegisterGo.do")
