@@ -7,6 +7,8 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script
@@ -178,9 +180,9 @@ function isLogined(flag){
 				<c:forEach items="${intakeTop4}" var="food" varStatus="status">
 					<div class="col-lg-3 col-md-3">
 						<div class="single_place">
-							<div class="numbering col-4" style="background-color: #ff8040; border-radius: 10px; left: 10px; top: 10px; height: 25px;">
-								Best ${status.count}
-							</div>
+							<div class="numbering col-4"
+								style="background-color: #ff8040; border-radius: 10px; left: 10px; top: 10px; height: 25px;">
+								Best ${status.count}</div>
 							<img src="${food.img}" alt="">
 							<div
 								class="hover_Text d-flex align-items-end justify-content-between">
@@ -188,7 +190,7 @@ function isLogined(flag){
 								<div class="hover_text_iner">
 									<h3>${food.name}</h3>
 									<%-- <h3>${status.count}</h3> --%>
-	
+
 									<a href="foodDetail.do?foodcode=${food.code}" class="place_btn">상세보기</a>
 
 									<div class="place_review">
@@ -206,7 +208,7 @@ function isLogined(flag){
 										</ul>
 									</div>
 								</div>
-								 
+
 							</div>
 						</div>
 					</div>
@@ -381,7 +383,18 @@ function isLogined(flag){
 		</div>
 	</section>
 	<!--::industries end::-->
-
+	<section>
+		<article id="contentArea">
+			<h2 align="center">20대 하루 권장 섭취량</h2>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<canvas id="myChart"></canvas>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</article>
+	</section>
 	<!--top place start-->
 	<section class="client_review section_padding">
 		<div class="container">
@@ -397,20 +410,20 @@ function isLogined(flag){
 					<div class="client_review_slider owl-carousel">
 						<c:forEach items="${list}" var="f">
 							<div class="single_review_slider">
-							<a href="foodDetail.do?foodcode=${f.code}">
-								<div class="place_review">
-									<img src="${f.img}" /> <a href="#"><i class="fas fa-star"></i></a>
-									<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a> <a href="#"><i
-										class="fas fa-star"></i></a>
-								</div>
-								<h5>${f.maker}</h5>
-								<h3>${f.name}</h3>
+								<a href="foodDetail.do?foodcode=${f.code}">
+									<div class="place_review">
+										<img src="${f.img}" /> <a href="#"><i class="fas fa-star"></i></a>
+										<a href="#"><i class="fas fa-star"></i></a> <a href="#"><i
+											class="fas fa-star"></i></a> <a href="#"><i
+											class="fas fa-star"></i></a> <a href="#"><i
+											class="fas fa-star"></i></a>
+									</div>
+									<h5>${f.maker}</h5>
+									<h3>${f.name}</h3>
 								</a>
 							</div>
 						</c:forEach>
-					
+
 					</div>
 				</div>
 			</div>
@@ -445,6 +458,139 @@ function isLogined(flag){
 	<script src="js/contact.js"></script>
 	<!-- custom js -->
 	<script src="js/custom.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			
+			
+/* 			var calory = ${todayfood.calory}
+			var carbo =  ${todayfood.carbo}
+			var protein =  ${todayfood.protein}
+			var fat =  ${todayfood.fat}
+			var sugar =  ${todayfood.sugar}
+			var natrium =  ${todayfood.natrium}
+			var chole = ${todayfood.chole}
+			var fattyacid = ${todayfood.fattyacid}
+			var transfat =  ${todayfood.transfat}
+			
+			var calory2 = calory+${wishfood.calory}
+			var carbo2 =  carbo+${wishfood.carbo}
+			var protein2 = protein+ ${wishfood.protein}
+			var fat2 =  fat+${wishfood.fat}
+			var sugar2 = sugar+ ${wishfood.sugar}
+			var natrium2 = natrium+ ${wishfood.natrium}
+			var chole2 =chole+ ${wishfood.chole}
+			var fattyacid2 = fattyacid+${wishfood.fattyacid}
+			var transfat2 = transfat+ ${wishfood.transfat} */
+		
+				var mcalory = 2600;
+			 var mcarbo = 410;
+			 var mprotein = 65;
+			 var mfat = 65;
+			 var msugar = 25;
+			 var mnatrium = 1500;
+			 var mchole = 300;
+			 var mfattyacid = 15;
+			 var mtransfat = 2.2;
+
+			 var fcalory = 2100;
+			 var fcarbo = 320;
+			 var fprotein = 55;
+			 var ffat = 45;
+			 var fsugar = 25;
+			 var fnatrium = 1500;
+			 var fchole = 300;
+			 var ffattyacid = 15;
+			 var ftransfat = 2.2; 
+
+			 console.log(mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,
+					mfattyacid, mtransfat);
+			console.log(fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,
+					ffattyacid, ftransfat); 
+			barChart(mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,
+					mfattyacid, mtransfat,fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,
+					ffattyacid, ftransfat);
+		});
+
+		function barChart(mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,
+				mfattyacid, mtransfat,fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,
+				ffattyacid, ftransfat) {
+			// 우선 컨텍스트를 가져옵니다. 
+			var ctx = document.getElementById("myChart").getContext('2d');
+			/*
+			 - Chart를 생성하면서, 
+			 - ctx를 첫번째 argument로 넘겨주고, 
+			 - 두번째 argument로 그림을 그릴때 필요한 요소들을 모두 넘겨줍니다. 
+			 */
+			var myChart = new Chart(ctx, {
+				type : 'bar',
+				data : {
+					labels : [ "칼로리", "탄수화물", "단백질", "지방", "당류", "나트륨",
+							"콜레스테롤", "포화지방산", "트랜스지방" ],
+					datasets : [
+							{
+								label : '남성 하루 권장 섭취량',
+								data : [ mcalory, mcarbo, mprotein, mfat, msugar, mnatrium, mchole,
+									mfattyacid, mtransfat ],
+								backgroundColor : [ 'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(75, 192, 192, 0.5)'
+										 ],
+								borderColor : [ 'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(75, 192, 192, 1)'
+									],
+								borderWidth : 1
+							},
+							{
+								label : '여성 하루 권장 섭취량',
+								data : [ fcalory, fcarbo, fprotein, ffat, fsugar, fnatrium, fchole,
+									ffattyacid, ftransfat ],
+								backgroundColor : [ 'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)',
+										'rgba(255, 159, 64, 0.5)' ],
+								borderColor : ['rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)',
+										'rgba(255, 159, 64, 1)' ],
+								borderWidth : 1
+							} ]
+				},
+				options : {
+					maintainAspectRatio : true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			});
+		}
+	</script>
 </body>
 
 </html>
