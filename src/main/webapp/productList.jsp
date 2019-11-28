@@ -56,7 +56,7 @@ function goAteFood(flag, flag2) {
 				<form method='post' action="addwishlist.do">
 				<input type="hidden" name="code" value="${food.code}" />
 					<tr id='listTableFistTr'>
-						<td rowspan='5' width='20%'>
+						<td rowspan='4' width='20%'>
 							<img src="${food.img}" id="${food.code}" name="${food.code}" width="260px" height="260px" class="imgContent" onclick="goDetail(this.name);")>
 						</td>
 						<td id="listTableFistTd" align="left">
@@ -74,9 +74,9 @@ function goAteFood(flag, flag2) {
 							<a href='#'><i class='fa fa-tag'></i> Web Design</a><hr>
 						</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td align='left' height="80%">${food.material}</td>
-					</tr>
+					</tr> --%>
 					<tr id='listTableLastTr'>
 						<td align='left'>
 							<%-- <button type='button' class='btn btn-info' name="${food.code}" onclick="goDetail(this.name);">

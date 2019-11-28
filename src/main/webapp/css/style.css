@@ -2848,7 +2848,7 @@ ul {
 
 /* line 39, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
 .top_place .single_place .hover_Text h3 {
-	font-size: 30px;
+	font-size: larger;
 	line-height: 36px;
 	color: #fff;
 	margin-bottom: 0;

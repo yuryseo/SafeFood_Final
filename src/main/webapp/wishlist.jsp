@@ -89,13 +89,13 @@
 			</div>
 			<br/><br/><br/>
 			<article id="contentArea">
-				<h2 align="center">내 섭취 식품 목록</h2>
+				<h2 align="center">찜한 식품 섭취시 영양성분 변화도 </h2>
 				<div class="row">
 					<div class="col-md-1"></div>
-					<div class="col-md-8">
+					<div class="col-md-10">
 						<canvas id="myChart"></canvas>
 					</div>
-					<div class="col-md-3"></div>
+					<div class="col-md-1"></div>
 				</div>
 			</article>
 		</div>
@@ -183,18 +183,18 @@
 							"콜레스테롤", "포화지방산", "트랜스지방" ],
 					datasets : [
 							{
-								label : '오늘 섭취량',
+								label : '오늘 영양소별 섭취량',
 								data : [ calory, carbo, protein, fat, sugar,
 										natrium, chole, fattyacid, transfat ],
-								backgroundColor : [ 'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)',
-										'rgba(54, 162, 235, 0.2)' ],
+								backgroundColor : [ 'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)',
+										'rgba(54, 162, 235, 0.4)' ],
 								borderColor : [ 'rgba(54, 162, 235, 1)',
 										'rgba(54, 162, 235, 1)',
 										'rgba(54, 162, 235, 1)',
@@ -207,7 +207,7 @@
 								borderWidth : 1
 							},
 							{
-								label : '찜한식품 섭취시 섭취량',
+								label : '찜한식품 섭취시 영양소별 섭취량',
 								data : [ calory2, carbo2, protein2, fat2,
 										sugar2, natrium2, chole2, fattyacid2,
 										transfat2 ],
