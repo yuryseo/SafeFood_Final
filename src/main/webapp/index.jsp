@@ -170,15 +170,21 @@ function isLogined(flag){
 				</div>
 			</div>
 			<div class="row">
-
-				<c:forEach items="${intakeTop4}" var="food">
+					
+				<c:forEach items="${intakeTop4}" var="food" varStatus="status">
 					<div class="col-lg-3 col-md-3">
 						<div class="single_place">
+								<%-- <div class="numbering">
+										<i>${status.count}</i>
+								</div> --%>
 							<img src="${food.img}" alt="">
 							<div
 								class="hover_Text d-flex align-items-end justify-content-between">
+								
 								<div class="hover_text_iner">
 									<h3>${food.name}</h3>
+									<%-- <h3>${status.count}</h3> --%>
+									
 									<a href="foodDetail.do?foodcode=${food.code}" class="place_btn">상세보기</a>
 									
 									<div class="place_review">
